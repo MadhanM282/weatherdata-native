@@ -1,0 +1,1932 @@
+{
+    "StudentQuestions": [
+        {
+            "Knowledge related Questions for Students": [
+                {
+                    "id": 1,
+                    "question": "Which of the following snacks is unhealthy to eat on a regular basis",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Fried chips"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Bananas"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Mangoes"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Ground nuts"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "question": "Fruits and vegetables provide which one of the following nutrients.",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Energy giving"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Body building"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Healthy foods"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "question": "Drinking sugar sweetened beverages (e.g Coke, Cola, sprint,SSB etc) can increase my body weight",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Correct"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Incorrect"
+                        },
+                        {
+                            "id": 3,
+                            "option": "I don't know"
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "question": "Eating fruit and vegetables is better than eating lollies",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Yes"
+                        },
+                        {
+                            "id": 2,
+                            "option": "No"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Don't know"
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "question": "Being bigger than average can be bad for your health",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Yes"
+                        },
+                        {
+                            "id": 2,
+                            "option": "No"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Don't know"
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "question": "From the foods given below which of the foods provide energy to the body",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Cassava"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Pawpaw"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Carrot"
+                        }
+                    ]
+                },
+                {
+                    "id": 7,
+                    "question": "From the foods given below which of the food is included in body building food group",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Cassava"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Pawpaw"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Fish"
+                        }
+                    ]
+                },
+                {
+                    "id": 8,
+                    "question": "From the foods given below which of the food is included in healthy foods, food group",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Cassava"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Pawpaw"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Fish"
+                        }
+                    ]
+                },
+                {
+                    "id": 9,
+                    "question": "Physical exercise(e.g. playing football, rugby, net ball, swimming etc) are important as they help to control weight",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Yes"
+                        },
+                        {
+                            "id": 2,
+                            "option": "No"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Don't know"
+                        }
+                    ]
+                },
+                {
+                    "id": 10,
+                    "question": "Which of these are unhealthy foods",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Candies and chocolates"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Bongo and twisties "
+                        },
+                        {
+                            "id": 3,
+                            "option": "Noodles (show picture)"
+                        },
+                        {
+                            "id": 4,
+                            "option": "All of the above "
+                        }
+                    ]
+                },
+                {
+                    "id": 11,
+                    "question": "Physical exercise helps",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Prevent heart disease"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Reduce body weight"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Promote strong bone, muscle development"
+                        },
+                        {
+                            "id": 4,
+                            "option": "All the above "
+                        }
+                    ]
+                },
+                {
+                    "id": 12,
+                    "question": "Watching too much TV, playing mobile games, using computer for majority of your free time and not playing outdoors is bad for your health",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Yes"
+                        },
+                        {
+                            "id": 2,
+                            "option": "No"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Don't know"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Attitude related Questions for Students": [
+                {
+                    "id": 13,
+                    "question": "How strongly do you agree or disagree with the following statements?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Eating vegetables makes me feel healthy"
+                        },
+                        {
+                            "id": 2,
+                            "option": "I like the taste of many vegetables like carrots, cabbage, beans, rourou etc."
+                        },
+                        {
+                            "id": 3,
+                            "option": "I think there is enough vegetables are served at dinner most nights"
+                        },
+                        {
+                            "id": 4,
+                            "option": "I like tasting new vegetables that I haven’t tried before"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Eating fruit makes me feel healthy"
+                        },
+                        {
+                            "id": 6,
+                            "option": "I like the taste of most fruit like pawpaw, pineapples and watermelon"
+                        },
+                        {
+                            "id": 7,
+                            "option": "I like tasting new fruits that I haven’t tried before"
+                        },
+                        {
+                            "id": 8,
+                            "option": "In my home fruit is available to eat at any time"
+                        },
+                        {
+                            "id": 9,
+                            "option": "I like to drink water"
+                        },
+                        {
+                            "id": 10,
+                            "option": "I ask my parents to buy foods or drinks that I see advertised on television"
+                        },
+                        {
+                            "id": 11,
+                            "option": "My parents encourage me to eat fruit and vegetables"
+                        },
+                        {
+                            "id": 12,
+                            "option": "Most of my teachers encourage the students to eat fruit and vegetables"
+                        },
+                        {
+                            "id": 13,
+                            "option": "I enjoy playing sports everyday"
+                        },
+                        {
+                            "id": 14,
+                            "option": "I think learning about food and health is important for me to know."
+                        },
+                        {
+                            "id": 15,
+                            "option": "If the weather is good, I am encouraged by myparents to play outside"
+                        },
+                        {
+                            "id": 16,
+                            "option": " enjoy eating snack (bongo and chips) while watching TV every day."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Practice related Questions for Students": [
+                {
+                    "id": 14,
+                    "question": "Think about yesterday. Describe what you drank at each time?",
+                    "instruction": "Tick as many boxes as apply",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Fruit Juice or fruit juice drink"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Regular Soft Drink or Energy/Sports Drink (eg. Powerade, Frubu or Sunfresh)"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Diet  Soft  Drink  (e.g.  Coke Zero, Diet Fanta)"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Water"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Milk/flavoured milk"
+                        }
+                    ]
+                },
+                {
+                    "id": 15,
+                    "question": "Think about yesterday. Describe what you eat at each time?",
+                    "instruction": "Tick as many boxes as apply",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Potato crisps or similar snack (e.g. twisties)"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Chocolate/Chocolate bar"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Lollies"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Muesli bar/ fruit bar"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Yoghurt / custard"
+                        },
+                        {
+                            "id": 6,
+                            "option": "Savoury biscuits (e.g. saladas, jatz& dip"
+                        },
+                        {
+                            "id": 7,
+                            "option": "Sweet  biscuits/Cake/Muffin/"
+                        },
+                        {
+                            "id": 8,
+                            "option": "Ice-cream/Ice-block"
+                        },
+                        {
+                            "id": 9,
+                            "option": "Vegetables or salad"
+                        },
+                        {
+                            "id": 10,
+                            "option": "Fruit (fresh or canned)"
+                        },
+                        {
+                            "id": 11,
+                            "option": "Dried fruit (e.g. sultanas)"
+                        },
+                        {
+                            "id": 12,
+                            "option": "Hot chips/French fries/wedges"
+                        },
+                        {
+                            "id": 13,
+                            "option": "Pie/Pastries/Sausage roll"
+                        },
+                        {
+                            "id": 14,
+                            "option": "Hot dog"
+                        },
+                        {
+                            "id": 15,
+                            "option": "Pizza"
+                        },
+                        {
+                            "id": 16,
+                            "option": "Sandwich/roll"
+                        },
+                        {
+                            "id": 17,
+                            "option": "Bread/toast"
+                        },
+                        {
+                            "id": 18,
+                            "option": "Spaghetti/pasta/noodles/rice"
+                        },
+                        {
+                            "id": 19,
+                            "option": "Samosa"
+                        },
+                        {
+                            "id": 20,
+                            "option": "Roti, Rice"
+                        },
+                        {
+                            "id": 21,
+                            "option": "Dalo"
+                        },
+                        {
+                            "id": 22,
+                            "option": "Cassava"
+                        },
+                        {
+                            "id": 23,
+                            "option": "Uto"
+                        },
+                        {
+                            "id": 24,
+                            "option": "Vudi"
+                        },
+                        {
+                            "id": 25,
+                            "option": "Others: list"
+                        }
+                    ]
+                },
+                {
+                    "id": 16,
+                    "question": "How often do you usually do the following?",
+                    "instruction": "Tick one box in each row",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Drink water"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Drink fruit juice or fruit juice drink"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Drink softdrink (not includingdietsoftdrink)"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Carry a water bottle"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Eat chocolate or lollies"
+                        },
+                        {
+                            "id": 6,
+                            "option": "Eat hot chips/French fries/wedges"
+                        },
+                        {
+                            "id": 7,
+                            "option": "Eat potato crisps or similarsnack (e.g. twisties)"
+                        },
+                        {
+                            "id": 8,
+                            "option": "Help choose or buy groceriesfor the family"
+                        },
+                        {
+                            "id": 9,
+                            "option": "Help prepare your dinner"
+                        },
+                        {
+                            "id": 10,
+                            "option": "Eat dinner with most of the family"
+                        },
+                        {
+                            "id": 11,
+                            "option": "Eat dinner in front of the television"
+                        },
+                        {
+                            "id": 12,
+                            "option": "Eat snacks in front of the television"
+                        },
+                        {
+                            "id": 13,
+                            "option": "Eat raw fruits and vegetables"
+                        }
+                    ]
+                },
+                {
+                    "id": 17,
+                    "question": "What do you usually do after school? (One or more possible responses)",
+                    "instruction": "Tick one box",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "I stay at home"
+                        },
+                        {
+                            "id": 2,
+                            "option": "play in the neighbourhood with my friends"
+                        },
+                        {
+                            "id": 3,
+                            "option": "I play video or computer games"
+                        },
+                        {
+                            "id": 4,
+                            "option": "I watch TV"
+                        },
+                        {
+                            "id": 5,
+                            "option": "I play sports in school team"
+                        },
+                        {
+                            "id": 6,
+                            "option": "Others"
+                        }
+                    ]
+                },
+                {
+                    "id": 18,
+                    "question": "On how many of the past 7 days did you exercise or took part in physical activity (for example: rugby, Soccer, net ball,  dancing, swimming, or other similar activities)",
+                    "instruction": "Tick one box",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Never"
+                        },
+                        {
+                            "id": 2,
+                            "option": "1-4 days"
+                        },
+                        {
+                            "id": 3,
+                            "option": "5-7 days"
+                        }
+                    ]
+                },
+                {
+                    "id": 19,
+                    "question": "How many hours did you watch TV or DVD movies at homeper day?",
+                    "instruction": "Tick one box",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "I did not watch TV"
+                        },
+                        {
+                            "id": 2,
+                            "option": "1-2 hours"
+                        },
+                        {
+                            "id": 3,
+                            "option": "More than 2 hours"
+                        }
+                    ]
+                },
+                {
+                    "id": 20,
+                    "question": "How many hours per school day you usually spend on the computer or laptop away from school? (Exclude the time spend on doing school home work or assignments).",
+                    "instruction": "Tick one box",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "I did not watch TV"
+                        },
+                        {
+                            "id": 2,
+                            "option": "1-2 hours"
+                        },
+                        {
+                            "id": 3,
+                            "option": "More than 2 hours"
+                        }
+                    ]
+                },
+                {
+                    "id": 21,
+                    "question": "How many hours per day on weekends you usually spend on the computer or laptop away from school? (Exclude the time spend on doing school home work or assignments).",
+                    "instruction": "Tick one box",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "I did not watch TV"
+                        },
+                        {
+                            "id": 2,
+                            "option": "1-2 hours"
+                        },
+                        {
+                            "id": 3,
+                            "option": "More than 2 hours"
+                        }
+                    ]
+                },
+                {
+                    "id": 22,
+                    "question": "How many hours per day you usually spend playing video games on mobile phones, tablets etc",
+                    "instruction": "Tick one box",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "I did not watch TV"
+                        },
+                        {
+                            "id": 2,
+                            "option": "1-2 hours"
+                        },
+                        {
+                            "id": 3,
+                            "option": "More than 2 hours"
+                        }
+                    ]
+                },
+                {
+                    "id": 23,
+                    "question": "In the last 5 school days, how many times did you watch TV while eating your dinner?",
+                    "instruction": "Tick one box",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Never"
+                        },
+                        {
+                            "id": 2,
+                            "option": "1-2 days"
+                        },
+                        {
+                            "id": 3,
+                            "option": "3-4 days"
+                        },
+                        {
+                            "id": 4,
+                            "option": "5 days"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "ParentQuestions": [
+        {
+            "Demographic Questions for Parents": [
+                {
+                    "id": 24,
+                    "question": "What is your age?",
+                    "options": []
+                },
+                {
+                    "id": 25,
+                    "question": "What is your Ethnic group?",
+                    "options": []
+                },
+                {
+                    "id": 26,
+                    "question": "What is your religion?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Christian"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Muslim"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Hindu"
+                        }
+                    ]
+                },
+                {
+                    "id": 27,
+                    "question": "What is your marital status?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Married"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Single"
+                        }
+                    ]
+                },
+                {
+                    "id": 28,
+                    "question": "What is your household average income per month?",
+                    "options": []
+                },
+                {
+                    "id": 29,
+                    "question": "How many children do you have?",
+                    "options": []
+                },
+                {
+                    "id": 30,
+                    "question": "What is your highest level of education? Please tick appropriate box.",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "No formal"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Primary"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Secondary"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Treitary"
+                        }
+                    ]
+                },
+                {
+                    "id": 31,
+                    "question": "What is your occupation status? Please tick appropriate box. ",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Domestic duties"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Professional"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Casual worker"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Knowledge Related Questions for Parents": [
+                {
+                    "id": 32,
+                    "question": "Children can be obese.",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Correct"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Incorrect"
+                        },
+                        {
+                            "id": 3,
+                            "option": "I don't know"
+                        }
+                    ]
+                },
+                {
+                    "id": 33,
+                    "question": "Eating fatty foods cause obesity.",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Correct"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Incorrect"
+                        },
+                        {
+                            "id": 3,
+                            "option": "I don't know"
+                        }
+                    ]
+                },
+                {
+                    "id": 34,
+                    "question": "An obese child will become an obese adult",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Correct"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Incorrect"
+                        },
+                        {
+                            "id": 3,
+                            "option": "I don't know"
+                        }
+                    ]
+                },
+                {
+                    "id": 35,
+                    "question": "Parents should prevent their children from obesity.",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Correct"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Incorrect"
+                        },
+                        {
+                            "id": 3,
+                            "option": "I don't know"
+                        }
+                    ]
+                },
+                {
+                    "id": 36,
+                    "question": "Eating more vegetables and fruits is the best methods to reduce weight.",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Correct"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Incorrect"
+                        },
+                        {
+                            "id": 3,
+                            "option": "I don't know"
+                        }
+                    ]
+                },
+                {
+                    "id": 37,
+                    "question": "According to you, which is a healthy diet?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "A diet contains variety of healthy foods"
+                        },
+                        {
+                            "id": 2,
+                            "option": "A diet whose foods are rich in protein (meat, fish, eggs, cheese, dried legumes)"
+                        },
+                        {
+                            "id": 3,
+                            "option": "A diet without any fats"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Eating fish very often"
+                        }
+                    ]
+                },
+                {
+                    "id": 38,
+                    "question": "According to you, which is the healthiest food?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Fresh vegetables"
+                        },
+                        {
+                            "id": 2,
+                            "option": "A canned food"
+                        },
+                        {
+                            "id": 3,
+                            "option": "A food very rich in dressing"
+                        },
+                        {
+                            "id": 4,
+                            "option": "A fried food"
+                        }
+                    ]
+                },
+                {
+                    "id": 39,
+                    "question": "According to you, which is the healthiest cooking method?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Steaming"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Frying/braising"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Cooking in the oven with fats"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Cooking in a pan with fats"
+                        }
+                    ]
+                },
+                {
+                    "id": 40,
+                    "question": "Which food contains carbohydrates?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Meat"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Butter"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Bread"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Cheese"
+                        }
+                    ]
+                },
+                {
+                    "id": 41,
+                    "question": "According to you, what is a “balanced diet”?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "A diet rich in protein"
+                        },
+                        {
+                            "id": 2,
+                            "option": "A diet poor in fat"
+                        },
+                        {
+                            "id": 3,
+                            "option": "A diet without carbohydrates"
+                        },
+                        {
+                            "id": 4,
+                            "option": "A diet containing all nutrients in proper quantities"
+                        }
+                    ]
+                },
+                {
+                    "id": 42,
+                    "question": "According to you, what is “daily energy expenditure”?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Energy consumed in the whole day"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Energy consumed during sleep"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Energy consumed only for physical activity"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Energy consumed for maintaining body temperature at 37°C"
+                        }
+                    ]
+                },
+                {
+                    "id": 43,
+                    "question": "What are “biological foods”?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Foods grown without any use of chemical fertilizer"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Foods grown in greenhouse"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Foods without additive and preservatives"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Foods grown in a ground far from the highway"
+                        }
+                    ]
+                },
+                {
+                    "id": 44,
+                    "question": "According to you, which is the healthiest eating behaviors?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Drinking 2 glasses of milk/eating 2 cups of yogurt every day"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Preferring cooked vegetables to uncooked vegetables"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Eating always cheese instead of meat"
+                        },
+                        {
+                            "id": 4,
+                            "option": "When you eat snacks, preferring fruit/fruit juice/ biscuits and crackers"
+                        }
+                    ]
+                },
+                {
+                    "id": 45,
+                    "question": "Physical exercise is the best methods to reduce weight.",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Correct"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Incorrect"
+                        },
+                        {
+                            "id": 3,
+                            "option": "I don't know"
+                        }
+                    ]
+                },
+                {
+                    "id": 46,
+                    "question": "Physical activity can decrease obesity and changes of developing Type II diabetes.",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Correct"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Incorrect"
+                        },
+                        {
+                            "id": 3,
+                            "option": "I don't know"
+                        }
+                    ]
+                },
+                {
+                    "id": 47,
+                    "question": "High blood pressure can be reduced by physical activity",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Correct"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Incorrect"
+                        },
+                        {
+                            "id": 3,
+                            "option": "I don't know"
+                        }
+                    ]
+                },
+                {
+                    "id": 48,
+                    "question": "Performing physical exercise only on weekend is enough to achieve health benefits.",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Correct"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Incorrect"
+                        },
+                        {
+                            "id": 3,
+                            "option": "I don't know"
+                        }
+                    ]
+                },
+                {
+                    "id": 49,
+                    "question": "What is the minimum number of days per week you believe a person must be physically active in order to receive any health benefit?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "0-1"
+                        },
+                        {
+                            "id": 2,
+                            "option": "2"
+                        },
+                        {
+                            "id": 3,
+                            "option": "3-5"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Not sure"
+                        }
+                    ]
+                },
+                {
+                    "id": 50,
+                    "question": "What is the minimum length of time (in minutes) one needs to be physically active throughout a typical day in order to achieve a health benefit?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "15"
+                        },
+                        {
+                            "id": 2,
+                            "option": "20"
+                        },
+                        {
+                            "id": 3,
+                            "option": "30"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Not sure"
+                        }
+                    ]
+                },
+                {
+                    "id": 51,
+                    "question": "Which is an example of aerobic exercise?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Lifting weights"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Stretching"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Playing tag"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Playing catch"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Attitude Related Questions for Parents": [
+                {
+                    "id": 51,
+                    "question": "Being physically active is enjoyable",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Completely agree"
+                        },
+                        {
+                            "id": 2,
+                            "option": "agree"
+                        },
+                        {
+                            "id": 3,
+                            "option": "No idea"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Disagree"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Completly disagree"
+                        }
+                    ]
+                },
+                {
+                    "id": 52,
+                    "question": "My kid feels comfortable discussing physical activities with me",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Completely agree"
+                        },
+                        {
+                            "id": 2,
+                            "option": "agree"
+                        },
+                        {
+                            "id": 3,
+                            "option": "No idea"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Disagree"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Completly disagree"
+                        }
+                    ]
+                },
+                {
+                    "id": 53,
+                    "question": "My kid really likes to learn a new sport.",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Completely agree"
+                        },
+                        {
+                            "id": 2,
+                            "option": "agree"
+                        },
+                        {
+                            "id": 3,
+                            "option": "No idea"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Disagree"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Completly disagree"
+                        }
+                    ]
+                },
+                {
+                    "id": 54,
+                    "question": "I believe that doing physical activity frequently is good for my child",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Completely agree"
+                        },
+                        {
+                            "id": 2,
+                            "option": "agree"
+                        },
+                        {
+                            "id": 3,
+                            "option": "No idea"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Disagree"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Completly disagree"
+                        }
+                    ]
+                },
+                {
+                    "id": 55,
+                    "question": "My child gives physical activity high priority among other activities",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Completely agree"
+                        },
+                        {
+                            "id": 2,
+                            "option": "agree"
+                        },
+                        {
+                            "id": 3,
+                            "option": "No idea"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Disagree"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Completly disagree"
+                        }
+                    ]
+                },
+                {
+                    "id": 56,
+                    "question": "I am interested that my child will be doing exercise in future",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Completely agree"
+                        },
+                        {
+                            "id": 2,
+                            "option": "agree"
+                        },
+                        {
+                            "id": 3,
+                            "option": "No idea"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Disagree"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Completly disagree"
+                        }
+                    ]
+                },
+                {
+                    "id": 57,
+                    "question": "Physical activity improves my child physical health",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Completely agree"
+                        },
+                        {
+                            "id": 2,
+                            "option": "agree"
+                        },
+                        {
+                            "id": 3,
+                            "option": "No idea"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Disagree"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Completly disagree"
+                        }
+                    ]
+                },
+                {
+                    "id": 58,
+                    "question": "Physical activity provides good opportunities to my child for developing social contacts",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Completely agree"
+                        },
+                        {
+                            "id": 2,
+                            "option": "agree"
+                        },
+                        {
+                            "id": 3,
+                            "option": "No idea"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Disagree"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Completly disagree"
+                        }
+                    ]
+                },
+                {
+                    "id": 59,
+                    "question": "Physical activity helps my child to have more control over his/her eating behaviors",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Completely agree"
+                        },
+                        {
+                            "id": 2,
+                            "option": "agree"
+                        },
+                        {
+                            "id": 3,
+                            "option": "No idea"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Disagree"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Completly disagree"
+                        }
+                    ]
+                },
+                {
+                    "id": 60,
+                    "question": " think physical activity needs to be included school curriculum",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Completely agree"
+                        },
+                        {
+                            "id": 2,
+                            "option": "agree"
+                        },
+                        {
+                            "id": 3,
+                            "option": "No idea"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Disagree"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Completly disagree"
+                        }
+                    ]
+                },
+                {
+                    "id": 61,
+                    "question": "Obesity is an indicator of good health",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Completely agree"
+                        },
+                        {
+                            "id": 2,
+                            "option": "agree"
+                        },
+                        {
+                            "id": 3,
+                            "option": "No idea"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Disagree"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Completly disagree"
+                        }
+                    ]
+                },
+                {
+                    "id": 62,
+                    "question": "Fast food should be limited to once a week for my child",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Completely agree"
+                        },
+                        {
+                            "id": 2,
+                            "option": "agree"
+                        },
+                        {
+                            "id": 3,
+                            "option": "No idea"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Disagree"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Completly disagree"
+                        }
+                    ]
+                },
+                {
+                    "id": 63,
+                    "question": "My child needs to access to more fruits, vegetables and other healthy foods",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Completely agree"
+                        },
+                        {
+                            "id": 2,
+                            "option": "agree"
+                        },
+                        {
+                            "id": 3,
+                            "option": "No idea"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Disagree"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Completly disagree"
+                        }
+                    ]
+                },
+                {
+                    "id": 64,
+                    "question": "What my child eats can make difference in him/her chances of getting heart disease or cancer",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Completely agree"
+                        },
+                        {
+                            "id": 2,
+                            "option": "agree"
+                        },
+                        {
+                            "id": 3,
+                            "option": "No idea"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Disagree"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Completly disagree"
+                        }
+                    ]
+                },
+                {
+                    "id": 65,
+                    "question": "Learning about the relationship between food and health is important for my child to know",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Completely agree"
+                        },
+                        {
+                            "id": 2,
+                            "option": "agree"
+                        },
+                        {
+                            "id": 3,
+                            "option": "No idea"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Disagree"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Completly disagree"
+                        }
+                    ]
+                },
+                {
+                    "id": 66,
+                    "question": "Learning about the relationship between physical activity and health is important for my child to know",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Completely agree"
+                        },
+                        {
+                            "id": 2,
+                            "option": "agree"
+                        },
+                        {
+                            "id": 3,
+                            "option": "No idea"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Disagree"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Completly disagree"
+                        }
+                    ]
+                },
+                {
+                    "id": 67,
+                    "question": "My child is willing to try new foods",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Completely agree"
+                        },
+                        {
+                            "id": 2,
+                            "option": "agree"
+                        },
+                        {
+                            "id": 3,
+                            "option": "No idea"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Disagree"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Completly disagree"
+                        }
+                    ]
+                },
+                {
+                    "id": 68,
+                    "question": "My childneeds to stop eatingthose food which are not good for him/her",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Completely agree"
+                        },
+                        {
+                            "id": 2,
+                            "option": "agree"
+                        },
+                        {
+                            "id": 3,
+                            "option": "No idea"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Disagree"
+                        },
+                        {
+                            "id": 5,
+                            "option": "Completly disagree"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "Practice Related Questions for Parents": [
+                {
+                    "id": 69,
+                    "question": "My child eats healthy meals.",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Yes"
+                        },
+                        {
+                            "id": 2,
+                            "option": "No"
+                        }
+                    ]
+                },
+                {
+                    "id": 70,
+                    "question": "I talk to children about healthy foods.",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Yes"
+                        },
+                        {
+                            "id": 2,
+                            "option": "No"
+                        }
+                    ]
+                },
+                {
+                    "id": 71,
+                    "question": "Does your child always eat home-cooked meals?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Yes"
+                        },
+                        {
+                            "id": 2,
+                            "option": "No"
+                        }
+                    ]
+                },
+                {
+                    "id": 72,
+                    "question": "Does your child consume fruits every day? ",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Yes"
+                        },
+                        {
+                            "id": 2,
+                            "option": "No"
+                        }
+                    ]
+                },
+                {
+                    "id": 73,
+                    "question": "Do you use vegetables in your child food?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Yes"
+                        },
+                        {
+                            "id": 2,
+                            "option": "No"
+                        }
+                    ]
+                },
+                {
+                    "id": 74,
+                    "question": "Do you give your child snack between meals?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Yes"
+                        },
+                        {
+                            "id": 2,
+                            "option": "No"
+                        }
+                    ]
+                },
+                {
+                    "id": 75,
+                    "question": "Do you educate you child about the foods quality?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Yes"
+                        },
+                        {
+                            "id": 2,
+                            "option": "No"
+                        }
+                    ]
+                },
+                {
+                    "id": 76,
+                    "question": "How many total cups of fruits your child consumes each day?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "None"
+                        },
+                        {
+                            "id": 2,
+                            "option": "1 to 4 Cups"
+                        },
+                        {
+                            "id": 3,
+                            "option": "5 Cups or more"
+                        },
+                        {
+                            "id": 4,
+                            "option": "I don't know"
+                        }
+                    ]
+                },
+                {
+                    "id": 77,
+                    "question": "Do you usually give your child a cake or desert at meals/snake?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Always"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Often"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Sometimes"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Never"
+                        }
+                    ]
+                },
+                {
+                    "id": 78,
+                    "question": "Which beverages does your child usually drink between meals?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Mineral water"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Soft drinks (cola, sprite, frubu, pepsi, etc.)"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Milk stakes"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Fruit/fruit juice/fruit and milk shakes"
+                        }
+                    ]
+                },
+                {
+                    "id": 79,
+                    "question": "Do you play games like football, rugby, walking, swimming etcwith you child every day?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Yes"
+                        },
+                        {
+                            "id": 2,
+                            "option": "No"
+                        }
+                    ]
+                },
+                {
+                    "id": 80,
+                    "question": "In an average week, my child exercise 3–4 times such as running, taking along walks, dancing, playing ball, swimming, and rugby. ",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Yes"
+                        },
+                        {
+                            "id": 2,
+                            "option": "No"
+                        }
+                    ]
+                },
+                {
+                    "id": 81,
+                    "question": "My child participate in a regular program of sports/exercises ",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Yes"
+                        },
+                        {
+                            "id": 2,
+                            "option": "No"
+                        }
+                    ]
+                },
+                {
+                    "id": 82,
+                    "question": "What your child should do during his/her free time?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "Walking"
+                        },
+                        {
+                            "id": 2,
+                            "option": "Watching TV/listening to music /using the computer/ reading a book"
+                        },
+                        {
+                            "id": 3,
+                            "option": "Practicing a sport"
+                        },
+                        {
+                            "id": 4,
+                            "option": "Shopping"
+                        }
+                    ]
+                },
+                {
+                    "id": 83,
+                    "question": "How many hours does yourchild spend on the computer or watching TV?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "1h–2h a day"
+                        },
+                        {
+                            "id": 2,
+                            "option": "3h–4h a day"
+                        },
+                        {
+                            "id": 3,
+                            "option": "5h–6h a day"
+                        },
+                        {
+                            "id": 4,
+                            "option": "More than 6h a day"
+                        }
+                    ]
+                },
+                {
+                    "id": 84,
+                    "question": "How many hours does yourchild spend on watching TV?",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "1h–2h a day"
+                        },
+                        {
+                            "id": 2,
+                            "option": "3h–4h a day"
+                        },
+                        {
+                            "id": 3,
+                            "option": "5h–6h a day"
+                        },
+                        {
+                            "id": 4,
+                            "option": "More than 6h a day"
+                        }
+                    ]
+                },
+                {
+                    "id": 85,
+                    "question": "During the past 12 months, on how many sports teams did your child play? (Include any teams run by your child’s school or community groups.)",
+                    "options": [
+                        {
+                            "id": 1,
+                            "option": "0 teams"
+                        },
+                        {
+                            "id": 2,
+                            "option": "1 team"
+                        },
+                        {
+                            "id": 3,
+                            "option": "2 teams"
+                        },
+                        {
+                            "id": 4,
+                            "option": "3 or more teams"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
