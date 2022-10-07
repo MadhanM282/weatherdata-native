@@ -24,12 +24,17 @@ import {Login} from './components/login';
 import {Register} from './components/register';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {HomeSection} from './components/home';
 import {SectionCard} from './components/SectionCard';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Dashboard} from './components/dashboard';
+import {Student} from './components/student';
+import {Parent} from './components/parent';
 
 const Stack = createNativeStackNavigator();
+const Tab = createMaterialTopTabNavigator();
+
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
 
@@ -95,6 +100,32 @@ const App = () => {
     });
   };
 
+  function MyTabs() {
+    return (
+      <Tab.Navigator>
+        <Tab.Screen
+          options={{
+            tabBarStyle: {
+              backgroundColor: '#c0392b',
+              color: 'black',
+            },
+          }}
+          name="Student"
+          component={Student}
+        />
+        <Tab.Screen
+          options={{
+            tabBarStyle: {
+              backgroundColor: '#c0392b',
+            },
+          }}
+          name="Parent"
+          component={Parent}
+        />
+      </Tab.Navigator>
+    );
+  }
+
   return (
     <NavigationContainer>
       <View>
@@ -148,8 +179,8 @@ const App = () => {
                 },
                 headerShadowVisible: false,
               }}
-              name="Card"
-              component={SectionCard}
+              name="Sections"
+              component={MyTabs}
             />
             <Stack.Screen
               options={{

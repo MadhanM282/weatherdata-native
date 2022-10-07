@@ -28,7 +28,7 @@ export const HomeSection = ({navigation}) => {
   const HandelChanged = async e => {
     await AsyncStorage.setItem('key', e);
     console.log(e);
-    navigation.navigate('Card');
+    navigation.navigate('Sections');
   };
   //  const HandelTouch = async () => {};
   return (

@@ -14,6 +14,8 @@ const {width: screenWidth} = Dimensions.get('window');
 
 export const SectionCard = ({navigation}) => {
   const [name, SetName] = useState('');
+  const [QuestionSections, SetQuestionSections] = useState([]);
+  // console.log(QuestionSections);
   useEffect(() => {
     data();
     GetQuestions();
@@ -21,9 +23,9 @@ export const SectionCard = ({navigation}) => {
 
   const GetQuestions = async () => {
     await axios
-      .get('http://localhost:3000/StudentQuestions')
+      .get('https://jsons-ervermock.herokuapp.com/StudentQuestions')
       .then(({data}) => {
-        console.log(data);
+        SetQuestionSections(data);
       })
       .catch(err => console.error(err));
   };
@@ -44,6 +46,20 @@ export const SectionCard = ({navigation}) => {
         <Text style={Styles.Text}>DOB:-27/04/1999</Text>
         <Text style={Styles.Text}>Status:- Active</Text>
       </Pressable>
+      {QuestionSections.map((e, i) => {
+        return (
+          <Pressable
+            onPress={() => {
+              console.log(e);
+            }}
+            style={Styles.Containor}
+            key={i}>
+            <Text style={Styles.Text}>
+              {i + 1}.{e.Title}
+            </Text>
+          </Pressable>
+        );
+      })}
     </LinearGradient>
   );
 };
@@ -62,9 +78,16 @@ const Styles = StyleSheet.create({
     justifyContent: 'space-between',
     borderRadius: 8,
     padding: 8,
+    marginBottom: 50,
   },
   Text: {
     color: '#fff',
     fontSize: 20,
+  },
+  Containor: {
+    borderWidth: 1,
+    padding: 20,
+    margin: 10,
+    borderRadius: 8,
   },
 });
