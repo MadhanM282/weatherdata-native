@@ -24,12 +24,14 @@ export const Login = ({navigation}) => {
       console.log(Credentials);
       await axios
         .post('https://jwtath-1.herokuapp.com/login', Credentials)
-        .then(({data}) => {
+        .then(async ({data}) => {
           console.log(data);
+          await AsyncStorage.setItem('auth', 'true');
           navigation.navigate('Home');
         })
-        .catch(err => console.log(err.message));
-      await AsyncStorage.setItem('auth', 'true');
+        .catch(err => {
+          console.log(err.message);
+        });
     } catch (error) {
       console.log(error.message);
     }
@@ -63,6 +65,7 @@ export const Login = ({navigation}) => {
           onChangeText={newText => HandelChange('password', newText)}
           defaultValue={Credentials.password}
         />
+
         <View style={Styles.ButtonContainor}>
           <View style={Styles.login}>
             <Pressable onPress={() => UserLogin()} style={Styles.buttons}>
@@ -105,8 +108,9 @@ const Styles = StyleSheet.create({
     color: 'white',
   },
   ButtonContainor: {
-    width: screenWidth - 250,
-    marginLeft: 100,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   login: {
     marginTop: 10,
@@ -119,7 +123,6 @@ const Styles = StyleSheet.create({
   },
   buttons: {
     padding: 10,
-    borderWidth: 1,
     width: screenWidth - 250,
     backgroundColor: 'black',
     borderRadius: 20,

@@ -1,14 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
-import {
-  Dimensions,
-  Platform,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {Dimensions, Platform, Pressable, StyleSheet, Text} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 const {width: screenWidth} = Dimensions.get('window');
 
@@ -49,8 +42,8 @@ export const SectionCard = ({navigation}) => {
       {QuestionSections.map((e, i) => {
         return (
           <Pressable
-            onPress={() => {
-              console.log(e);
+            onPress={b => {
+              console.log(b);
             }}
             style={Styles.Containor}
             key={i}>

@@ -1,56 +1,29 @@
 import React, {useEffect, useState} from 'react';
-// import RadioGroup from 'react-native-radio-buttons-group';
+import RadioButtonRN from 'radio-buttons-react-native';
+import {StyleSheet} from 'react-native';
+export const Radio = ({data, index}) => {
+  // const [use, SetUse] = useState([]);
+  const [init, SetInit] = useState(-1);
 
-// const radioButtonsData = [
-//   {
-//     id: '1', // acts as primary key, should be unique and non-empty string
-//     label: 'Option 1',
-//     value: 'option1',
-//   },
-//   {
-//     id: '2',
-//     label: 'Option 2',
-//     value: 'option2',
-//   },
-// ];
-
-// export const Radio = ({data}) => {
-//   console.log(data);
-//   const [radioButtons, setRadioButtons] = useState(data);
-
-//   function onPressRadioButton(radioButtonsArray) {
-//     setRadioButtons(radioButtonsArray);
-//   }
-
-//   return (
-//     <RadioGroup radioButtons={radioButtons} onPress={onPressRadioButton} />
-//   );
-// };
-import {View} from 'react-native';
-import RadioForm, {
-  RadioButton,
-  RadioButtonInput,
-  RadioButtonLabel,
-} from 'react-native-simple-radio-button';
-
-var radio_props = [
-  {label: 'param1', value: 0},
-  {label: 'param2', value: 1},
-];
-
-export const Radio = ({data}) => {
-  const [use, SetUse] = useState([]);
+  useEffect(() => {
+    SetInit();
+  }, [index]);
 
   return (
-    <View>
-      <RadioForm
-        radio_props={data}
-        initial={0}
-        onPress={value => {
-          SetUse({value: value});
-          console.log(value);
-        }}
-      />
-    </View>
+    <RadioButtonRN
+      data={data}
+      box={false}
+      initial={init}
+      // deactiveColor={'white'}
+      selectedBtn={e => {}}
+      textStyle={Style.text}
+    />
   );
 };
+
+const Style = StyleSheet.create({
+  text: {
+    fontSize: 20,
+    color: 'white',
+  },
+});

@@ -19,18 +19,17 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {openDatabase} from 'react-native-sqlite-storage';
+// import {openDatabase} from 'react-native-sqlite-storage';
 import {Login} from './components/login';
 import {Register} from './components/register';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {HomeSection} from './components/home';
-import {SectionCard} from './components/SectionCard';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {Dashboard} from './components/dashboard';
 import {Student} from './components/student';
 import {Parent} from './components/parent';
+import {Error} from './components/Error';
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialTopTabNavigator();
@@ -38,67 +37,68 @@ const Tab = createMaterialTopTabNavigator();
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
 
-const {width: screenWidth} = Dimensions.get('window');
+const {height: screenHeight} = Dimensions.get('window');
 
-var db = openDatabase({name: 'UserDatabase.db'});
+// var db = openDatabase({name: 'UserDatabase.db'});
 
 const App = () => {
+  // console.log(screenWidth, screenHeight);
   const isDarkMode = useColorScheme() === 'dark';
 
-  const [Auth, SetAuth] = useState(false);
+  const [Auth, SetAuth] = useState();
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? '#c0392b' : '#c0392b',
   };
   // const NetInfo = useNetInfo();
-  const [Result, SetResults] = useState([]);
+  // const [Result, SetResults] = useState([]);
   useEffect(() => {
-    SetResults([]);
+    // SetResults([]);
     GetAuth();
-  }, []);
-  const Data = JSON.stringify(Result);
+  }, [Auth]);
+  console.log(Auth);
+  // const Data = JSON.stringify(Result);
   // CreateTable();
   // DataBase();
 
   const GetAuth = async () => {
     let data = await AsyncStorage.getItem('auth');
-
+    // await AsyncStorage.setItem('auth', 'false');
     SetAuth(JSON.parse(data));
   };
-  console.log(Auth);
 
-  const DataBase = () => {
-    db.transaction(function (tx) {
-      tx.executeSql('DELETE FROM Weather');
-      tx.executeSql('INSERT INTO Weather (WeatherData) VALUES (?)', [Data]);
-    });
-    db.transaction(tx => {
-      tx.executeSql('SELECT * FROM Weather', [], (txt, results) => {
-        var temp = [];
-        for (let i = 0; i < results.rows.length; ++i) {
-          temp.push(results.rows.item(i).WeatherData);
-        }
-      });
-    });
-  };
-  const CreateTable = () => {
-    db.transaction(function (txn) {
-      txn.executeSql(
-        "SELECT name FROM sqlite_master WHERE type='table' AND name='Weather'",
-        [],
-        function (tx, res) {
-          console.log('item:', res.rows.length);
-          if (res.rows.length === 0) {
-            txn.executeSql('DROP TABLE IF EXISTS Weather', []);
-            txn.executeSql(
-              'CREATE TABLE IF NOT EXISTS Weather(WeatherData NVARCHAR(10000))',
-              [],
-            );
-          }
-        },
-      );
-    });
-  };
+  // const DataBase = () => {
+  //   db.transaction(function (tx) {
+  //     tx.executeSql('DELETE FROM Weather');
+  //     tx.executeSql('INSERT INTO Weather (WeatherData) VALUES (?)', [Data]);
+  //   });
+  //   db.transaction(tx => {
+  //     tx.executeSql('SELECT * FROM Weather', [], (txt, results) => {
+  //       var temp = [];
+  //       for (let i = 0; i < results.rows.length; ++i) {
+  //         temp.push(results.rows.item(i).WeatherData);
+  //       }
+  //     });
+  //   });
+  // };
+  // const CreateTable = () => {
+  //   db.transaction(function (txn) {
+  //     txn.executeSql(
+  //       "SELECT name FROM sqlite_master WHERE type='table' AND name='Weather'",
+  //       [],
+  //       function (tx, res) {
+  //         console.log('item:', res.rows.length);
+  //         if (res.rows.length === 0) {
+  //           txn.executeSql('DROP TABLE IF EXISTS Weather', []);
+  //           txn.executeSql(
+  //             'CREATE TABLE IF NOT EXISTS Weather(WeatherData NVARCHAR(10000))',
+  //             [],
+  //           );
+  //         }
+  //       },
+  //     );
+  //   });
+  // };
 
   function MyTabs() {
     return (
@@ -127,7 +127,7 @@ const App = () => {
   }
 
   return (
-    <NavigationContainer>
+    <View>
       <View>
         <StatusBar
           barStyle={isDarkMode ? 'light-content' : 'dark-content'}
@@ -148,8 +148,42 @@ const App = () => {
               <Text style={HeaderCard.Text}>Student Monitor App</Text>
             </ImageBackground>
           </View>
-          <Stack.Navigator>
-            {Auth ? (
+          <NavigationContainer>
+            <Stack.Navigator>
+              {Auth === false ? (
+                <Stack.Screen
+                  options={{
+                    headerStyle: {
+                      backgroundColor: 'transparent',
+                    },
+                    headerShadowVisible: false,
+                  }}
+                  name="login"
+                  component={Login}
+                />
+              ) : Auth === true ? (
+                <Stack.Screen
+                  options={{
+                    headerStyle: {
+                      backgroundColor: 'transparent',
+                    },
+                    headerShadowVisible: false,
+                  }}
+                  name="Dashboard"
+                  component={HomeSection}
+                />
+              ) : (
+                <Stack.Screen
+                  options={{
+                    headerStyle: {
+                      backgroundColor: 'transparent',
+                    },
+                    headerShadowVisible: false,
+                  }}
+                  name="-"
+                  component={Error}
+                />
+              )}
               <Stack.Screen
                 options={{
                   headerStyle: {
@@ -160,7 +194,6 @@ const App = () => {
                 name="Home"
                 component={HomeSection}
               />
-            ) : (
               <Stack.Screen
                 options={{
                   headerStyle: {
@@ -168,44 +201,35 @@ const App = () => {
                   },
                   headerShadowVisible: false,
                 }}
-                name="Home"
+                name="Login"
                 component={Login}
               />
-            )}
-            <Stack.Screen
-              options={{
-                headerStyle: {
-                  backgroundColor: 'transparent',
-                },
-                headerShadowVisible: false,
-              }}
-              name="Sections"
-              component={MyTabs}
-            />
-            <Stack.Screen
-              options={{
-                headerStyle: {
-                  backgroundColor: 'transparent',
-                },
-                headerShadowVisible: false,
-              }}
-              name="Login"
-              component={Login}
-            />
-            <Stack.Screen
-              options={{
-                headerStyle: {
-                  backgroundColor: 'transparent',
-                },
-                headerShadowVisible: false,
-              }}
-              name="Register"
-              component={Register}
-            />
-          </Stack.Navigator>
+
+              <Stack.Screen
+                options={{
+                  headerStyle: {
+                    backgroundColor: 'transparent',
+                  },
+                  headerShadowVisible: false,
+                }}
+                name="Sections"
+                component={MyTabs}
+              />
+              <Stack.Screen
+                options={{
+                  headerStyle: {
+                    backgroundColor: 'transparent',
+                  },
+                  headerShadowVisible: false,
+                }}
+                name="Register"
+                component={Register}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
         </LinearGradient>
       </View>
-    </NavigationContainer>
+    </View>
   );
 };
 
@@ -217,7 +241,7 @@ const styles = StyleSheet.create({
     paddingTop: 100,
     paddingVertical: 0,
     paddingHorizontal: 0,
-    height: screenWidth - Platform.select({ios: -455, android: -550}),
+    height: screenHeight,
   },
   image: {
     ...StyleSheet.absoluteFillObject,

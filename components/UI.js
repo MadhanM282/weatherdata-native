@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ActivityIndicator, Button, LogBox} from 'react-native';
+import {ActivityIndicator, LogBox} from 'react-native';
 import Carousel from 'react-native-banner-carousel';
 import {
   StyleSheet,
@@ -8,7 +8,6 @@ import {
   Dimensions,
   Text,
   Platform,
-  ImageBackground,
 } from 'react-native';
 
 const BannerWidth = Dimensions.get('window').width;
@@ -21,6 +20,7 @@ export const ImageSLider = ({data, Reload}) => {
   const [Time, SetTime] = useState('');
   const [State, SetState] = useState(false);
   const [CurrentPage, SetCurrentPAge] = useState(0);
+
   data.sort((a, b) => {
     return a.name.localeCompare(b.name);
   });
@@ -56,6 +56,7 @@ export const ImageSLider = ({data, Reload}) => {
       console.log(error);
     }
   };
+
   const renderPage = (Data, index) => {
     let imageURI;
     CityImages.map(e => {

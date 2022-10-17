@@ -2,106 +2,96 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 import {
-  Button,
+  ActivityIndicator,
   Dimensions,
-  Platform,
   Pressable,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {Radio} from './radio';
-const {width: screenWidth} = Dimensions.get('window');
+// import {Checkbox} from './checkbox';
+// import {Input} from './input';
+import {QuestionCard} from './questionCard';
+// import {Radio} from './radio';
+const {width: screenWidth, height: screenHeight} = Dimensions.get('window');
 
-export const Parent = ({navigation}) => {
+export const Parent = ({navigation, route}) => {
+  // console.log(navigation);
+  // console.log(route);
+  // console.log(props, 'props');
   const [name, SetName] = useState('');
   const [QuestionSections, SetQuestionSections] = useState([]);
   const [index, SetIndex] = useState(0);
-  // console.log(QuestionSections);
+  const [Status, SetStatus] = useState(false);
+  // const [toggler, SetToggler] = useState(false);
   useEffect(() => {
     data();
     GetQuestions();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  // console.log('Question in the array', QuestionSections);
 
-  // if (QuestionSections !== []) {
-  //   console.log('Question in the array', QuestionSections[0].Questions[index]);
-  // }
   const GetQuestions = async () => {
-    // SetQuestionSections([]);
+    SetStatus(false);
     await axios
       .get('https://jsons-ervermock.herokuapp.com/ParentQuestions')
       .then(({data}) => {
         SetQuestionSections(data[0].Questions);
-        // console.log('inside', data[0].Questions);
+        SetStatus(true);
       })
       .catch(err => console.error(err));
   };
   const data = async () => {
     const key = await AsyncStorage.getItem('key');
     SetName(key);
-    // QuestionSections.map(e => {
-    //   console.log('mapping', e);
-    // });
   };
-  console.log(index);
-  return (
+  return Status ? (
+    <View>
+      <LinearGradient
+        colors={['#c0392b', '#f1c40f', '#8e44ad']}
+        start={{x: 0, y: 0.5}}
+        end={{x: 1, y: 1}}
+        style={Styles.button}>
+        <Pressable style={Styles.Card}>
+          <Text style={Styles.Text}>ID:-{24}</Text>
+          <Text style={Styles.Text}>Name:-{name}</Text>
+          <Text style={Styles.Text}>DOB:-27/04/1999</Text>
+          <Text style={Styles.Text}>Status:- Active</Text>
+        </Pressable>
+        <Text style={Styles.Title}>{QuestionSections[index]?.Section}</Text>
+        <QuestionCard
+          QuestionSections={QuestionSections}
+          index={index}
+          SetIndex={SetIndex}
+        />
+      </LinearGradient>
+    </View>
+  ) : (
     <LinearGradient
       colors={['#c0392b', '#f1c40f', '#8e44ad']}
       start={{x: 0, y: 0.5}}
       end={{x: 1, y: 1}}
       style={Styles.button}>
-      <Pressable style={Styles.Card}>
-        <Text style={Styles.Text}>ID:-{24}</Text>
-        <Text style={Styles.Text}>Name:-{name}</Text>
-        <Text style={Styles.Text}>DOB:-27/04/1999</Text>
-        <Text style={Styles.Text}>Status:- Active</Text>
-      </Pressable>
-      <Text style={Styles.Title}>
-        Section:-{QuestionSections[index]?.Section}
-      </Text>
-      <Text style={Styles.Text}>
-        Question:-{index + 1}/{QuestionSections.length}
-      </Text>
-      <Text style={Styles.Title}>
-        {index + 1}.{QuestionSections[index]?.question}
-      </Text>
-      {QuestionSections[index]?.options ? (
-        <Radio data={QuestionSections[index]?.options} />
-      ) : (
-        ''
-      )}
-      <View style={Styles.buttonDiv}>
-        <Pressable
-          onPress={() => {
-            if (index > 0) {
-              SetIndex(index - 1);
-            }
-          }}
-          style={Styles.buttons}>
-          <Text style={Styles.buttonText}>Previous</Text>
-        </Pressable>
-        <Pressable
-          onPress={() => {
-            if (index < QuestionSections.length - 1) {
-              SetIndex(index + 1);
-            }
-          }}
-          style={Styles.buttons}>
-          <Text style={Styles.buttonText}>next</Text>
-        </Pressable>
+      <View style={[Loading.container, Loading.horizontal]}>
+        <ActivityIndicator color="#ffffff" size="large" />
       </View>
     </LinearGradient>
   );
 };
 
 const Styles = StyleSheet.create({
+  condition: {
+    fontSize: 20,
+  },
+  scrollView: {
+    // marginbottom: 0,
+    flex: 1,
+    height: screenHeight,
+    borderWidth: 1,
+  },
   button: {
-    paddingVertical: 0,
+    paddingVertical: 3,
     paddingHorizontal: 10,
-    height: screenWidth - Platform.select({ios: -455, android: -550}),
+    height: screenHeight,
   },
   Card: {
     borderWidth: 1,
@@ -110,12 +100,12 @@ const Styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     borderRadius: 8,
-    padding: 8,
+    padding: 1,
     marginBottom: 50,
   },
   Text: {
-    color: '#fff',
-    fontSize: 20,
+    color: 'white',
+    fontSize: 17,
   },
   buttonText: {
     fontSize: 20,
@@ -125,7 +115,7 @@ const Styles = StyleSheet.create({
   buttons: {
     padding: 10,
     borderWidth: 1,
-    width: screenWidth - 300,
+    width: screenWidth / 3,
     backgroundColor: 'black',
     borderRadius: 20,
   },
@@ -142,7 +132,24 @@ const Styles = StyleSheet.create({
   },
   Title: {
     color: 'white',
-    fontSize: 30,
+    fontSize: 20,
     marginBottom: 30,
+  },
+  BottomText: {
+    color: 'white',
+    fontSize: 25,
+    textAlign: 'center',
+  },
+});
+
+const Loading = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
   },
 });

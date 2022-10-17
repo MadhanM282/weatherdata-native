@@ -78,8 +78,8 @@ export const Register = ({navigation}) => {
               <Text style={Styles.buttonText}>Register</Text>
             </Pressable>
           </View>
+          <Text>Already have an account?</Text>
           <View style={Styles.login}>
-            <Text>Already have an account?</Text>
             <Pressable
               onPress={() => navigation.navigate('Login', {name: 'Login'})}
               style={Styles.buttons}>
@@ -111,21 +111,20 @@ const Styles = StyleSheet.create({
     fontSize: 26,
   },
   ButtonContainor: {
-    width: screenWidth - 250,
-    marginLeft: 100,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   login: {
     marginTop: 10,
   },
   button: {
-    // paddingTop: 100,
     paddingVertical: 0,
     paddingHorizontal: 10,
     height: screenWidth - Platform.select({ios: -455, android: -550}),
   },
   buttons: {
     padding: 10,
-    borderWidth: 1,
     width: screenWidth - 250,
     backgroundColor: 'black',
     borderRadius: 20,

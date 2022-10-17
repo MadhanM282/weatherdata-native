@@ -2,7 +2,7 @@
 // https://aboutreact.com/example-of-sqlite-database-in-react-native
 // Screen to register the user
 
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 
 import {openDatabase} from 'react-native-sqlite-storage';
 
