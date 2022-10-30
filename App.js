@@ -30,6 +30,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Student} from './components/student';
 import {Parent} from './components/parent';
 import {Error} from './components/Error';
+import {StudentForm} from './components/StudentForm';
+import {ParentForm} from './components/ParentForm';
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialTopTabNavigator();
@@ -56,7 +58,7 @@ const App = () => {
     // SetResults([]);
     GetAuth();
   }, [Auth]);
-  console.log(Auth);
+  console.log('auth', Auth);
   // const Data = JSON.stringify(Result);
   // CreateTable();
   // DataBase();
@@ -150,7 +152,7 @@ const App = () => {
           </View>
           <NavigationContainer>
             <Stack.Navigator>
-              {Auth === false ? (
+              {Auth === null || false ? (
                 <Stack.Screen
                   options={{
                     headerStyle: {
@@ -193,6 +195,26 @@ const App = () => {
                 }}
                 name="Home"
                 component={HomeSection}
+              />
+              <Stack.Screen
+                options={{
+                  headerStyle: {
+                    backgroundColor: 'transparent',
+                  },
+                  headerShadowVisible: false,
+                }}
+                name="StudentForm"
+                component={StudentForm}
+              />
+              <Stack.Screen
+                options={{
+                  headerStyle: {
+                    backgroundColor: 'transparent',
+                  },
+                  headerShadowVisible: false,
+                }}
+                name="ParentForm"
+                component={ParentForm}
               />
               <Stack.Screen
                 options={{

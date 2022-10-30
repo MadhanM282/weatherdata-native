@@ -1,100 +1,25 @@
-{
-    "navigation": {
-        "addListener": [Function addListener
-        ],
-        "canGoBack": [Function canGoBack
-        ],
-        "dispatch": [Function dispatch
-        ],
-        "getId": [Function getId
-        ],
-        "getParent": [Function getParent
-        ],
-        "getState": [Function anonymous
-        ],
-        "goBack": [Function anonymous
-        ],
-        "isFocused": [Function isFocused
-        ],
-        "jumpTo": [Function anonymous
-        ],
-        "navigate": [Function anonymous
-        ],
-        "pop": [Function anonymous
-        ],
-        "popToTop": [Function anonymous
-        ],
-        "push": [Function anonymous
-        ],
-        "removeListener": [Function removeListener
-        ],
-        "replace": [Function anonymous
-        ],
-        "reset": [Function anonymous
-        ],
-        "setOptions": [Function setOptions
-        ],
-        "setParams": [Function anonymous
-        ]
+[
+    {
+        "question": {
+            "Section": "Practice related Questions for Students",
+            "Type": "multiple",
+            "condition": "Think about yesterday. Describe what you eat at each time?",
+            "id": 34,
+            "options": [Array
+            ],
+            "question": "Potato crisps or similar snack (e.g. twisties)"
+        }
     },
-    "route": {
-        "key": "Student-4nu6h5OWHruuy0cdnTb5U",
-        "name": "Student",
-        "params": undefined
+    {
+        "answer": {
+            "id": 1,
+            "label": "Racees"
+        }
+    },
+    {
+        "answer": {
+            "id": 2,
+            "label": "Lunch"
+        }
     }
-}
-// {
-//   "Section": "Practice related Questions for Students",
-//   "Type": "multiple",
-//   "category": [
-//     {
-//       "id": 1,
-//       "label": "Racees"
-//     },
-//     {
-//       "id": 2,
-//       "label": "Lunch"
-//     },
-//     {
-//       "id": 3,
-//       "label": "After school (not including dinner)"
-//     }
-//   ],
-//   "id": 14,
-//   "options": [
-//     {
-//       "id": 1,
-//       "label": "Fruit Juice or fruit juice drink",
-//       "value": "Fruit Juice or fruit juice drink"
-//     },
-//     {
-//       "id": 2,
-//       "label": "Regular Soft Drink or Energy/Sports Drink (eg. Powerade, Frubu or Sunfresh)",
-//       "value": "Regular Soft Drink or Energy/Sports Drink (eg. Powerade, Frubu or Sunfresh)"
-//     },
-//     {
-//       "id": 3,
-//       "label": "Diet  Soft  Drink  (e.g.  Coke Zero, Diet Fanta)",
-//       "value": "Diet  Soft  Drink  (e.g.  Coke Zero, Diet Fanta)"
-//     },
-//     {
-//       "id": 4,
-//       "label": "Water",
-//       "value": "Water"
-//     },
-//     {
-//       "id": 5,
-//       "label": "Milk/flavoured milk",
-//       "value": "Milk/flavoured milk"
-//     }
-//   ],
-//   "question": "Think about yesterday. Describe what you drank at each time?"
-// }
-// <RadioButtonRN
-//       data={data}
-//       box={false}
-//       initial={init}
-//       // deactiveColor={'white'}
-//       selectedBtn={e => {}}
-//       textStyle={{fontSize: 20, color: 'white'}}
-//     />
+]

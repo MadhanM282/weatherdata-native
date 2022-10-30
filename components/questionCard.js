@@ -1,12 +1,66 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Dimensions, Pressable, StyleSheet, Text, View} from 'react-native';
 import {Checkbox} from './checkbox';
 import {Input} from './input';
 import {RadioComponent} from './radioComponent';
 const {width: screenWidth} = Dimensions.get('window');
 
-export const QuestionCard = ({QuestionSections, index, SetIndex}) => {
-  useEffect(() => {}, [index]);
+export const QuestionCard = ({
+  QuestionSections,
+  index,
+  SetIndex,
+  SetResponce,
+  Responce,
+}) => {
+  // console.log(QuestionSections[index]);
+  const [multiple, SetMultiple] = useState([
+    {question: QuestionSections[index]},
+  ]);
+  const [input, SetInput] = useState({});
+  const [single, SetSingle] = useState({});
+
+  const HandelResponce = () => {
+    if (single !== {}) {
+      console.log('single', single);
+      SetSingle({});
+      SetInput({});
+      SetMultiple([]);
+    }
+    if (input !== {}) {
+      console.log('input', input);
+      SetSingle({});
+      SetInput({});
+      SetMultiple([]);
+    }
+    if (multiple !== []) {
+      console.log('multy', multiple);
+      SetSingle({});
+      SetInput({});
+      SetMultiple([]);
+    }
+  };
+
+  const handelSingleRadio = e => {
+    console.log(e);
+    SetSingle({
+      ...single,
+      ['question']: QuestionSections[index],
+      ['answer']: e,
+    });
+  };
+
+  const handelMultiple = e => {
+    SetMultiple([...multiple, e]);
+  };
+
+  const handelInput = e => {
+    SetInput({
+      ...input,
+      ['question']: QuestionSections[index],
+      ['answer']: e,
+    });
+  };
+
   return (
     <View>
       {QuestionSections[index].Type === 'multiple' ? (
@@ -21,11 +75,20 @@ export const QuestionCard = ({QuestionSections, index, SetIndex}) => {
       </Text>
       {QuestionSections[index].Type === 'single' ? (
         // <Text>Single</Text>
-        <RadioComponent i={index} data={QuestionSections[index]?.options} />
+        <RadioComponent
+          handelSingleRadio={handelSingleRadio}
+          i={index}
+          data={QuestionSections[index]?.options}
+        />
       ) : QuestionSections[index].Type === 'multiple' ? (
-        <Checkbox data={QuestionSections[index]} />
+        <Checkbox
+          // HandelResponce={HandelResponce}
+          data={QuestionSections[index]}
+          i={index}
+          handelMultiple={handelMultiple}
+        />
       ) : QuestionSections[index].Type === 'input' ? (
-        <Input />
+        <Input SetInput={SetInput} i={index} handelInput={handelInput} />
       ) : (
         <Text>{QuestionSections[index].Type}</Text>
       )}
@@ -43,6 +106,7 @@ export const QuestionCard = ({QuestionSections, index, SetIndex}) => {
           onPress={() => {
             if (index < QuestionSections.length - 1) {
               SetIndex(index + 1);
+              HandelResponce();
             }
           }}
           style={Styles.buttons}>

@@ -3,8 +3,8 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {CheckBoxButton} from './checkboxButton';
 
-export const Checkbox = ({data, toggle}) => {
-  console.log(data);
+export const Checkbox = ({data, i, handelMultiple}) => {
+  // console.log(data);
 
   return (
     <View>
@@ -14,8 +14,12 @@ export const Checkbox = ({data, toggle}) => {
         const state = false;
         return (
           <View key={value.id} style={Style.container}>
-            <CheckBoxButton state={state} />
-            <Text style={Style.Text}>{value.label}</Text>
+            <CheckBoxButton
+              handelMultiple={handelMultiple}
+              state={state}
+              value={value}
+              i={i}
+            />
           </View>
         );
       })}

@@ -10,21 +10,18 @@ import {
   View,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-// import {Checkbox} from './checkbox';
-// import {Input} from './input';
+import {openDatabase} from 'react-native-sqlite-storage';
 import {QuestionCard} from './questionCard';
-// import {Radio} from './radio';
 const {width: screenWidth, height: screenHeight} = Dimensions.get('window');
+var db = openDatabase({name: 'UserDatabase.db'});
 
 export const Parent = ({navigation, route}) => {
-  // console.log(navigation);
-  // console.log(route);
-  // console.log(props, 'props');
-  const [name, SetName] = useState('');
-  const [QuestionSections, SetQuestionSections] = useState([]);
+  const [name, SetName] = useState([]);
+  const [QuestionSections, SetQuestionSections] = useState({});
   const [index, SetIndex] = useState(0);
   const [Status, SetStatus] = useState(false);
-  // const [toggler, SetToggler] = useState(false);
+  const [ParentResponse, SetParentResponse] = useState({});
+  const [StudentResponse, SetStudentResponse] = useState({});
   useEffect(() => {
     data();
     GetQuestions();
@@ -41,8 +38,28 @@ export const Parent = ({navigation, route}) => {
       .catch(err => console.error(err));
   };
   const data = async () => {
-    const key = await AsyncStorage.getItem('key');
-    SetName(key);
+    db.transaction(tx => {
+      let temp = [];
+      tx.executeSql('SELECT * FROM ParentData', [], (txt, results) => {
+        console.log('results', results);
+        for (let i = 0; i < results.rows.length; ++i) {
+          temp.push(results.rows.item(i).ParentData);
+          console.log('ParentData', JSON.parse(temp));
+        }
+        SetParentResponse(JSON.parse(temp));
+      });
+    });
+    db.transaction(tx => {
+      let temp = [];
+      tx.executeSql('SELECT * FROM StudentData', [], (txt, results) => {
+        console.log('results', results);
+        for (let i = 0; i < results.rows.length; ++i) {
+          temp.push(results.rows.item(i).StudentData);
+          console.log('StudentData', JSON.parse(temp));
+        }
+        SetStudentResponse(JSON.parse(temp));
+      });
+    });
   };
   return Status ? (
     <View>
@@ -52,10 +69,9 @@ export const Parent = ({navigation, route}) => {
         end={{x: 1, y: 1}}
         style={Styles.button}>
         <Pressable style={Styles.Card}>
-          <Text style={Styles.Text}>ID:-{24}</Text>
-          <Text style={Styles.Text}>Name:-{name}</Text>
-          <Text style={Styles.Text}>DOB:-27/04/1999</Text>
-          <Text style={Styles.Text}>Status:- Active</Text>
+          <Text style={Styles.Text}>Name:-{StudentResponse.parent}</Text>
+          <Text style={Styles.Text}>Status:-{ParentResponse.occupation}</Text>
+          <Text style={Styles.Text}>DOB:-{ParentResponse.age}</Text>
         </Pressable>
         <Text style={Styles.Title}>{QuestionSections[index]?.Section}</Text>
         <QuestionCard

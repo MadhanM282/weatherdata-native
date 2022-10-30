@@ -11,16 +11,19 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {QuestionCard} from './questionCard';
+import {openDatabase} from 'react-native-sqlite-storage';
+var db = openDatabase({name: 'UserDatabase.db'});
 const {width: screenWidth, height: screenHeight} = Dimensions.get('window');
 
 export const Student = ({navigation, route}) => {
-  // console.log(navigation);
-  // console.log(route);
-  // console.log(props, 'props');
-  const [name, SetName] = useState('');
-  const [QuestionSections, SetQuestionSections] = useState([]);
+  // const [name, SetName] = useState([]);
+  const [QuestionSections, SetQuestionSections] = useState({});
   const [index, SetIndex] = useState(0);
   const [Status, SetStatus] = useState(false);
+  const [Responce, SetResponce] = useState([]);
+  const [Res, SetRes] = useState({});
+
+  console.log('Responce', Responce);
   useEffect(() => {
     data();
     GetQuestions();
@@ -37,9 +40,50 @@ export const Student = ({navigation, route}) => {
       .catch(err => console.error(err));
   };
   const data = async () => {
-    const key = await AsyncStorage.getItem('key');
-    SetName(key);
+    db.transaction(tx => {
+      let temp = [];
+      tx.executeSql('SELECT * FROM StudentData', [], (txt, results) => {
+        for (let i = 0; i < results.rows.length; ++i) {
+          temp.push(results.rows.item(i).StudentData);
+          console.log('StudentData in student section', JSON.parse(temp));
+        }
+        SetRes(JSON.parse(temp));
+      });
+    });
   };
+
+  const DataBase = () => {
+    db.transaction(function (tx) {
+      tx.executeSql('INSERT INTO student (responce) VALUES (?)', [Responce]);
+    });
+    db.transaction(tx => {
+      tx.executeSql('SELECT * FROM student', [], (txt, results) => {
+        var temp = [];
+        for (let i = 0; i < results.rows.length; ++i) {
+          temp.push(results.rows.item(i).studentData);
+        }
+      });
+    });
+  };
+  const CreateTable = () => {
+    db.transaction(function (txn) {
+      txn.executeSql(
+        "SELECT name FROM sqlite_master WHERE type='table' AND name='student'",
+        [],
+        function (tx, res) {
+          console.log('item:', res.rows.length);
+          if (res.rows.length === 0) {
+            txn.executeSql('DROP sTABLE IF EXISTS student', []);
+            txn.executeSql(
+              'CREATE TABLE IF NOT EXISTS student(responce NVARCHAR(100000))',
+              [],
+            );
+          }
+        },
+      );
+    });
+  };
+
   return Status ? (
     <View>
       <LinearGradient
@@ -48,16 +92,17 @@ export const Student = ({navigation, route}) => {
         end={{x: 1, y: 1}}
         style={Styles.button}>
         <Pressable style={Styles.Card}>
-          <Text style={Styles.Text}>ID:-{24}</Text>
-          <Text style={Styles.Text}>Name:-{name}</Text>
-          <Text style={Styles.Text}>DOB:-27/04/1999</Text>
-          <Text style={Styles.Text}>Status:- Active</Text>
+          <Text style={Styles.Text}>Name:-{Res.name}</Text>
+          <Text style={Styles.Text}>Age:-{Res.age}</Text>
+          <Text style={Styles.Text}>Gender:-{Res.gender}</Text>
         </Pressable>
         <Text style={Styles.Title}>{QuestionSections[index]?.Section}</Text>
         <QuestionCard
           QuestionSections={QuestionSections}
           index={index}
           SetIndex={SetIndex}
+          SetResponce={SetResponce}
+          Responce={Responce}
         />
       </LinearGradient>
     </View>

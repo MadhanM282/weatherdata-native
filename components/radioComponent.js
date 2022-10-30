@@ -2,20 +2,29 @@ import React, {useEffect, useState} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 // import RadioButtonRN from 'radio-buttons-react-native';
 import {RadioButton} from 'react-native-paper';
-export const RadioComponent = ({data, index}) => {
-  const [value, setValue] = useState(1);
+export const RadioComponent = ({data, i, handelSingleRadio}) => {
+  const [value, setValue] = useState(0);
+  console.log(value);
   useEffect(() => {
     setValue(0);
-  }, [index]);
+  }, [i]);
   return (
     <View>
-      {data.map(item => {
+      {data.map((item, ind) => {
         return (
           <RadioButton.Group
-            key={index}
-            onValueChange={newValue => setValue(newValue)}
+            key={ind}
+            onValueChange={newValue => {
+              setValue(newValue);
+              handelSingleRadio(item);
+            }}
             value={value}>
-            <Pressable onPress={() => setValue(item.id)} style={Style.box}>
+            <Pressable
+              onPress={() => {
+                setValue(item.id);
+                handelSingleRadio(item);
+              }}
+              style={Style.box}>
               <RadioButton value={item.id} color="blue" />
               <Text style={Style.text}>{item.label}</Text>
             </Pressable>
