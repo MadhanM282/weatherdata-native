@@ -11,7 +11,7 @@ export const Input = ({SetInput, i, handelInput}) => {
     handelInput(e);
   };
   useEffect(() => {
-    console.log(i, 'index');
+    // console.log(i, 'index');
     // SetInput('');
     setdefault('');
   }, [i]);
@@ -19,6 +19,7 @@ export const Input = ({SetInput, i, handelInput}) => {
     <TextInput
       style={Styles.TextFields}
       placeholder="Enter your Answer.."
+      placeholderTextColor="#818589"
       onChangeText={newText => HandelChange(newText)}
       defaultValue={Default}
     />
@@ -31,8 +32,8 @@ const Styles = StyleSheet.create({
     height: 60,
     borderBottomWidth: 2,
     marginTop: 10,
-    borderColor: 'white',
+    borderColor: 'black',
     fontSize: 20,
-    color: 'white',
+    color: 'black',
   },
 });

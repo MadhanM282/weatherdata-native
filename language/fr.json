@@ -1,0 +1,18 @@
+{
+    "header": "Application de moniteur étudiant",
+    "ID": "Identifiant",
+    "Name": "Nom",
+    "School": "École",
+    "Gender": "Le genre",
+    "Age": "Âge",
+    "Country": "Pays",
+    "Ethnicity": "Origine ethnique",
+    "Buttons": {
+        "AddStudent": "Ajouter un étudiant",
+        "AddParentDetails": "Ajouter les détails des parents",
+        "Save": "sauvegarder",
+        "Next": "Prochain",
+        "Previous": "Précédent",
+        "ViewProfile": "Voir le profil"
+    }
+}

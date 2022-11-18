@@ -1,9 +1,9 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 export const SelectTag = () => {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <View style={Styles.containor}>
       <RNPickerSelect
         onValueChange={value => console.log(value)}
         items={[
@@ -15,3 +15,11 @@ export const SelectTag = () => {
     </View>
   );
 };
+
+const Styles = StyleSheet.create({
+  containor: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});

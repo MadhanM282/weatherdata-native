@@ -1,20 +1,15 @@
 import React from 'react';
 import {ActivityIndicator, Dimensions, StyleSheet, View} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 
 const {height: screenHeight} = Dimensions.get('window');
 
 export const Error = () => {
   return (
-    <LinearGradient
-      colors={['#c0392b', '#f1c40f', '#8e44ad']}
-      start={{x: 0, y: 0.5}}
-      end={{x: 1, y: 1}}
-      style={Loading.button}>
+    <View style={Loading.button}>
       <View style={[Loading.container, Loading.horizontal]}>
         <ActivityIndicator color="#ffffff" size="large" />
       </View>
-    </LinearGradient>
+    </View>
   );
 };
 
@@ -23,6 +18,7 @@ const Loading = StyleSheet.create({
     paddingVertical: 3,
     paddingHorizontal: 10,
     height: screenHeight,
+    backgroundColor: 'white',
   },
   container: {
     flex: 1,

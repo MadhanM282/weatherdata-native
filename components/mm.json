@@ -1,25 +1,119 @@
-[
-    {
-        "question": {
-            "Section": "Practice related Questions for Students",
-            "Type": "multiple",
-            "condition": "Think about yesterday. Describe what you eat at each time?",
-            "id": 34,
-            "options": [Array
-            ],
-            "question": "Potato crisps or similar snack (e.g. twisties)"
-        }
+{
+    "parent": {
+        "age": "39",
+        "childcount": "1",
+        "country": "India",
+        "education": "Tertiary",
+        "email": "Rohit@gmail.com",
+        "ethnicgroup": "Kapu",
+        "income": "60000",
+        "maritalstatus": "Married",
+        "mobile": "",
+        "name": "Rohit",
+        "occupation": "Professional",
+        "religion": "Hindu"
     },
-    {
-        "answer": {
-            "id": 1,
-            "label": "Racees"
-        }
+    "student": {
+        "age": "21",
+        "country": "India",
+        "ethnicity": "Kapu",
+        "gender": "Male",
+        "id": "1",
+        "name": "Madhan",
+        "school": "Depaul"
     },
-    {
-        "answer": {
-            "id": 2,
-            "label": "Lunch"
-        }
+    "data": {
+        "age": "36",
+        "childcount": "2",
+        "country": "United States of America",
+        "education": "Tertiary",
+        "email": "Richal@gmail.com",
+        "ethnicgroup": "American",
+        "income": "100000",
+        "maritalstatus": "Married",
+        "mobile": "",
+        "name": "Richal",
+        "occupation": "Professional",
+        "religion": "Christian",
+        "studentid": "3"
     }
-]
+},
+{
+    /* <Pressable style={Styles.Card}>
+          <Text style={Styles.Text}>ID</Text>
+          <Text style={Styles.Text}>Name</Text>
+          <Text style={Styles.Text}>DOB</Text>
+        </Pressable>
+        <SafeAreaView style={Styles.containor}>
+          <ScrollView
+            contentInsetAdjustmentBehavior="automatic"
+            contentContainerStyle={Styles.containor}>
+            {users.map((user, index) => {
+              return (
+                <View key={index} style={Styles.box}>
+                  <Pressable
+                    style={Styles.Card}
+                    onPress={e => {
+                      HandelChanged(user);
+                    }}>
+                    <Text style={Styles.Text}>{user.student_id}</Text>
+                    <Text style={Styles.Text}>{user.name}</Text>
+                    <Text style={Styles.Text}>{user.dob}</Text>
+                  </Pressable>
+                </View>
+              );
+            })}
+          </ScrollView>
+        </SafeAreaView> */
+},
+{
+    /* <View style={Styles.buttonDiv}>
+          <Pressable
+            onPress={() => {
+              if (index > 0) {
+                SetIndex(index - 1);
+              }
+            }}
+            style={Styles.buttons}>
+            <Text style={Styles.buttonText}>Previous</Text>
+          </Pressable>
+          <Pressable
+            onPress={() => {
+              if (index < QuestionSections.length - 1) {
+                SetIndex(index + 1);
+                HandelResponce();
+              }
+            }}
+            style={Styles.buttons}>
+            <Text style={Styles.buttonText}>Next</Text>
+          </Pressable>
+        </View>
+        <View>
+          <Text style={Styles.BottomText}>
+            {index + 1}/{QuestionSections.length}
+          </Text>
+        </View> */
+}
+  {
+    /* <Button
+          disabled={Disable}
+          onPress={() => {
+            SetColor('green');
+            if (QuestionSections.Type === 'multiple') {
+              handelMultiple();
+            }
+            SetDisable(true);
+            HandelResponce();
+          }}
+          style={{backgroundColor: color}}>
+          <Text style={{color: 'white'}}>
+            {color === 'blue' ? 'Save Responce' : 'Saved'}
+          </Text>
+        </Button> */
+}
+.\VBoxManage.exe modifyvm "mac" --cpuidset 00000001 000106e5 00100800 0098e3fd bfebfbff
+.\VBoxManage setextradata "mac" "VBoxInternal/Devices/efi/0/Config/DmiSystemProduct" "iMac11,3"
+.\VBoxManage setextradata "mac" "VBoxInternal/Devices/efi/0/Config/DmiSystemVersion" "1.0"
+.\VBoxManage setextradata "mac" "VBoxInternal/Devices/efi/0/Config/DmiBoardProduct" "Iloveapple"
+.\VBoxManage setextradata "mac" "VBoxInternal/Devices/smc/0/Config/DeviceKey" "ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc"
+.\VBoxManage setextradata "mac" "VBoxInternal/Devices/smc/0/Config/GetKeyFromRealSMC" 1

@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useEffect, useState} from 'react';
 import {
@@ -5,53 +6,62 @@ import {
   KeyboardAvoidingView,
   Platform,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import {openDatabase} from 'react-native-sqlite-storage';
-const {height: screenHeight, width: screenWidth} = Dimensions.get('window');
+import {DropDown} from './dropdown';
+import {Countries} from './list';
+const {width: screenWidth} = Dimensions.get('window');
 var db = openDatabase({name: 'UserDatabase.db'});
+import * as RNLocalize from 'react-native-localize';
+import en from '../language/en.json';
+import fr from '../language/fr.json';
+import ge from '../language/ge.json';
 
+const Schools = [
+  {label: 'Delhi Public School', value: '1'},
+  {label: 'Kendra vidhyalayam', value: '2'},
+  {label: 'Depaul', value: '3'},
+];
 export const StudentForm = ({navigation}) => {
   // const dim = Dimensions.get('screen');
   // console.log('dimensions', dim);
   const [Students, SetStudents] = useState([]);
-  console.log('List', Students);
+  const [Tags, SetTags] = useState({});
+
+  // console.log('List in student form', Students);
   const [studentDetails, SetStudentDetails] = useState({
     name: '',
-    parent: '',
     id: '',
     age: '',
     gender: '',
     ethnicity: '',
+    country: '',
+    school: '',
   });
-  const [Res, SetRes] = useState({});
-  console.log(Res);
+
   useEffect(() => {
+    const lang = RNLocalize.findBestAvailableLanguage(['de', 'en', 'fr']);
+    console.log('language', lang);
+    lang.languageTag === 'en'
+      ? SetTags(en)
+      : lang.languageTag === 'fr'
+      ? SetTags(fr)
+      : SetTags(ge);
     CreateTable();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   const DataBase = async () => {
-    SetStudents([...Students, studentDetails]);
+    Students.push(studentDetails);
     db.transaction(function (tx) {
       tx.executeSql('DELETE FROM StudentData');
       tx.executeSql('INSERT INTO StudentData (StudentData) VALUES (?)', [
         JSON.stringify(Students),
       ]);
-    });
-    db.transaction(tx => {
-      let temp = [];
-      tx.executeSql('SELECT * FROM StudentData', [], (txt, results) => {
-        console.log('results', results);
-        for (let i = 0; i < results.rows.length; ++i) {
-          temp.push(results.rows.item(i).StudentData);
-          console.log('StudentData', JSON.parse(temp));
-        }
-        SetRes(JSON.parse(temp));
-      });
     });
   };
   const CreateTable = () => {
@@ -77,132 +87,156 @@ export const StudentForm = ({navigation}) => {
         // console.log('results', results);
         for (let i = 0; i < results.rows.length; ++i) {
           temp.push(results.rows.item(i).StudentData);
-          console.log('StudentData', JSON.parse(temp));
+          // console.log('StudentData', JSON.parse(temp));
         }
-        SetStudents([...Students, JSON.parse(temp)]);
+        SetStudents(JSON.parse(temp));
       });
     });
   };
   const HandelChange = (e, id) => {
     SetStudentDetails({...studentDetails, [id]: e});
   };
-  // console.log(studentDetails);
   return (
-    <LinearGradient
-      colors={['#c0392b', '#f1c40f', '#8e44ad']}
-      start={{x: 0, y: 0.5}}
-      end={{x: 1, y: 1}}
-      style={Loading.button}>
+    <ScrollView style={Loading.button}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={Styles.containor}>
         <View>
           <View style={Loading.container}>
-            <Text style={Styles.Text}>Name</Text>
+            <Text style={Styles.Text}>{Tags.Name}</Text>
             <TextInput
               style={Styles.TextFields}
               placeholder="Enter your Answer.."
               onChangeText={newText => HandelChange(newText, 'name')}
               defaultValue={''}
+              placeholderTextColor="#818589"
             />
           </View>
           <View style={Loading.container}>
-            <Text style={Styles.Text}>Enter ID</Text>
+            <Text style={Styles.Text}>{Tags.ID}</Text>
             <TextInput
+              keyboardType="number-pad"
               style={Styles.TextFields}
               placeholder="Enter your Answer.."
               onChangeText={newText => HandelChange(newText, 'id')}
               defaultValue={''}
+              placeholderTextColor="#818589"
             />
           </View>
           <View style={Loading.container}>
-            <Text style={Styles.Text}>
-              Name of Participating parents in the study
-            </Text>
-            <TextInput
-              style={Styles.TextFields}
-              placeholder="Enter your Answer.."
-              onChangeText={newText => HandelChange(newText, 'parent')}
-              defaultValue={''}
+            <DropDown
+              data={Schools}
+              HandelSelect={HandelChange}
+              label={'Select School'}
+              id={'school'}
             />
           </View>
           <View style={Loading.container}>
-            <Text style={Styles.Text}>Age (years)</Text>
+            <DropDown
+              data={Countries}
+              HandelSelect={HandelChange}
+              label={'Select Country'}
+              id={'country'}
+            />
+          </View>
+          <View style={Loading.container}>
+            <Text style={Styles.Text}>{Tags.Age}</Text>
             <TextInput
               keyboardType="number-pad"
               style={Styles.TextFields}
               placeholder="Enter your Answer.."
               onChangeText={newText => HandelChange(newText, 'age')}
               defaultValue={''}
+              placeholderTextColor="#818589"
             />
           </View>
           <View style={Loading.container}>
-            <Text style={Styles.Text}>Gender</Text>
+            <Text style={Styles.Text}>{Tags.Gender}</Text>
             <TextInput
               style={Styles.TextFields}
               placeholder="Enter your Answer.."
               onChangeText={newText => HandelChange(newText, 'gender')}
               defaultValue={''}
+              placeholderTextColor="#818589"
             />
           </View>
           <View style={Loading.container}>
-            <Text style={Styles.Text}>Ethnicity</Text>
+            <Text style={Styles.Text}>{Tags.Ethnicity}</Text>
             <TextInput
               style={Styles.TextFields}
               placeholder="Enter your Answer.."
               onChangeText={newText => HandelChange(newText, 'ethnicity')}
               defaultValue={''}
+              placeholderTextColor="#818589"
             />
           </View>
           <View style={Styles.ButtonContainor}>
             <View style={Styles.login}>
               <Pressable
-                onPress={() => {
+                onPress={async () => {
                   if (studentDetails.name === '') {
                     alert('enter Name');
-                  } else if (studentDetails.parent === '') {
-                    alert('enter Parent Name');
                   } else if (studentDetails.age === '') {
                     alert('enter age');
                   } else if (studentDetails.gender === '') {
                     alert('enter gender');
                   } else if (studentDetails.ethnicity === '') {
                     alert('enter ethnicity');
+                  } else if (studentDetails.id === '') {
+                    alert('enter id');
+                  } else if (studentDetails.school === '') {
+                    alert('Select School Name');
+                  } else if (studentDetails.country === '') {
+                    alert('Select Country');
                   } else {
+                    await AsyncStorage.setItem(
+                      'student',
+                      JSON.stringify(studentDetails),
+                    );
                     DataBase();
-                    navigation.navigate('Sections');
+                    navigation.navigate('Home');
                   }
                 }}
                 style={Styles.buttons}>
-                <Text style={Styles.buttonText}>Save</Text>
+                <Text style={Styles.buttonText}>{Tags?.Buttons?.Save}</Text>
               </Pressable>
             </View>
             <View style={Styles.login}>
               <Pressable
-                onPress={() => {
+                onPress={async () => {
                   if (studentDetails.name === '') {
                     alert('enter Name');
-                  } else if (studentDetails.parent === '') {
-                    alert('enter Parent Name');
                   } else if (studentDetails.age === '') {
                     alert('enter age');
                   } else if (studentDetails.gender === '') {
                     alert('enter gender');
                   } else if (studentDetails.ethnicity === '') {
                     alert('enter ethnicity');
+                  } else if (studentDetails.id === '') {
+                    alert('enter id');
+                  } else if (studentDetails.school === '') {
+                    alert('Select School Name');
+                  } else if (studentDetails.country === '') {
+                    alert('Select Country');
                   } else {
+                    await AsyncStorage.setItem(
+                      'student',
+                      JSON.stringify(studentDetails),
+                    );
                     DataBase();
                     navigation.navigate('ParentForm');
                   }
                 }}
                 style={Styles.buttons}>
-                <Text style={Styles.buttonText}>Parent Details</Text>
+                <Text style={Styles.buttonText}>
+                  {Tags?.Buttons?.AddParentDetails}
+                </Text>
               </Pressable>
             </View>
           </View>
         </View>
       </KeyboardAvoidingView>
-    </LinearGradient>
+    </ScrollView>
   );
 };
 
@@ -212,21 +246,24 @@ const Styles = StyleSheet.create({
   },
   TextFields: {
     width: screenWidth - 30,
-    height: 60,
-    borderBottomWidth: 2,
+    height: 50,
+    borderBottomWidth: 1,
     marginBottom: 9,
     marginTop: -9,
-    borderColor: 'white',
+    borderColor: 'black',
     fontSize: 20,
-    color: 'white',
+    marginLeft: 6,
+    color: 'black',
   },
   Text: {
     fontSize: 20,
-    color: 'white',
+    color: 'black',
+    marginLeft: 6,
+    fontFamily: 'bolder',
   },
   buttons: {
     padding: 10,
-    width: screenWidth / 3,
+    width: screenWidth / 2.5,
     backgroundColor: 'black',
     borderRadius: 20,
   },
@@ -243,9 +280,9 @@ const Styles = StyleSheet.create({
 
 const Loading = StyleSheet.create({
   button: {
-    paddingVertical: 3,
-    paddingHorizontal: 10,
-    height: screenHeight,
+    backgroundColor: 'white',
+    flex: 1,
+    padding: 10,
   },
   container: {
     width: screenWidth,

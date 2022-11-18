@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {Dimensions, Pressable, StyleSheet, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {Dimensions, StyleSheet, Text, View} from 'react-native';
 import {Checkbox} from './checkbox';
 import {Input} from './input';
 import {RadioComponent} from './radioComponent';
@@ -12,112 +12,92 @@ export const QuestionCard = ({
   SetResponce,
   Responce,
 }) => {
-  // console.log(QuestionSections[index]);
-  const [multiple, SetMultiple] = useState([
-    {question: QuestionSections[index]},
-  ]);
+  // const [Disable, SetDisable] = useState(false);
+  // const [multiple, SetMultiple] = useState([]);
   const [input, SetInput] = useState({});
-  const [single, SetSingle] = useState({});
-
-  const HandelResponce = () => {
-    if (single !== {}) {
-      console.log('single', single);
-      SetSingle({});
-      SetInput({});
-      SetMultiple([]);
-    }
-    if (input !== {}) {
-      console.log('input', input);
-      SetSingle({});
-      SetInput({});
-      SetMultiple([]);
-    }
-    if (multiple !== []) {
-      console.log('multy', multiple);
-      SetSingle({});
-      SetInput({});
-      SetMultiple([]);
-    }
-  };
+  const [MultyOption, SetMultyOption] = useState({
+    questionID: '',
+    answers: [],
+  });
+  // console.log(MultyOption)
 
   const handelSingleRadio = e => {
     console.log(e);
-    SetSingle({
-      ...single,
-      ['question']: QuestionSections[index],
-      ['answer']: e,
-    });
+    const ind = Responce.findIndex(
+      value => value.questionID === QuestionSections.id,
+    );
+    if (ind !== undefined && ind >= 0) {
+      console.log('index', ind);
+      Responce[ind] = {['questionID']: QuestionSections.id, ['answerID']: e.id};
+      console.log('Result', Responce);
+    } else {
+      SetResponce([
+        ...Responce,
+        {['questionID']: QuestionSections.id, ['answerID']: e.id},
+      ]);
+    }
   };
 
-  const handelMultiple = e => {
-    SetMultiple([...multiple, e]);
+  // const handelMultiple = e => {
+  //   SetMultiple(MultyOption);
+  //   SetMultyOption({
+  //     questionID: '',
+  //     answers: [],
+  //   });
+  // };
+  const HandelMultyOptions = e => {
+    SetMultyOption({
+      ...MultyOption,
+      answers: [...MultyOption.answers, e.id],
+      questionID: QuestionSections.id,
+    });
   };
 
   const handelInput = e => {
     SetInput({
       ...input,
-      ['question']: QuestionSections[index],
+      ['question']: QuestionSections.id,
       ['answer']: e,
     });
+    // const ind = Responce.findIndex(
+    //   value => value.questionID === input.questionID,
+    // );
+    // if (ind !== undefined) {
+    //   Responce[ind] = input;
+    // } else {
+    //   SetResponce([...Responce, input]);
+    // }
   };
 
   return (
     <View>
-      {QuestionSections[index].Type === 'multiple' ? (
-        <Text style={Styles.condition}>
-          {QuestionSections[index].condition}
-        </Text>
+      {QuestionSections.Type === 'multiple' ? (
+        <Text style={Styles.condition}>{QuestionSections.condition}</Text>
       ) : (
-        ''
+        <Text style={Styles.condition}> </Text>
       )}
       <Text style={Styles.Title}>
-        {index + 1}.{QuestionSections[index]?.question}
+        {QuestionSections.id}.{QuestionSections?.question}
       </Text>
-      {QuestionSections[index].Type === 'single' ? (
+      {QuestionSections.Type === 'single' ? (
         // <Text>Single</Text>
         <RadioComponent
           handelSingleRadio={handelSingleRadio}
           i={index}
-          data={QuestionSections[index]?.options}
+          data={QuestionSections?.options}
         />
-      ) : QuestionSections[index].Type === 'multiple' ? (
+      ) : QuestionSections.Type === 'multiple' ? (
         <Checkbox
           // HandelResponce={HandelResponce}
-          data={QuestionSections[index]}
+          data={QuestionSections}
           i={index}
-          handelMultiple={handelMultiple}
+          handelMultiple={HandelMultyOptions}
         />
-      ) : QuestionSections[index].Type === 'input' ? (
+      ) : QuestionSections.Type === 'input' ? (
         <Input SetInput={SetInput} i={index} handelInput={handelInput} />
       ) : (
-        <Text>{QuestionSections[index].Type}</Text>
+        <Text>{QuestionSections.Type}</Text>
       )}
-      <View style={Styles.buttonDiv}>
-        <Pressable
-          onPress={() => {
-            if (index > 0) {
-              SetIndex(index - 1);
-            }
-          }}
-          style={Styles.buttons}>
-          <Text style={Styles.buttonText}>Previous</Text>
-        </Pressable>
-        <Pressable
-          onPress={() => {
-            if (index < QuestionSections.length - 1) {
-              SetIndex(index + 1);
-              HandelResponce();
-            }
-          }}
-          style={Styles.buttons}>
-          <Text style={Styles.buttonText}>Next</Text>
-        </Pressable>
-      </View>
-      <View>
-        <Text style={Styles.BottomText}>
-          {index + 1}/{QuestionSections.length}
-        </Text>
-      </View>
     </View>
   );
 };
@@ -125,6 +105,7 @@ export const QuestionCard = ({
 const Styles = StyleSheet.create({
   condition: {
     fontSize: 20,
+    marginTop: 30,
   },
   Card: {
     borderWidth: 1,
@@ -164,12 +145,11 @@ const Styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   Title: {
-    color: 'white',
+    color: 'black',
     fontSize: 20,
-    marginBottom: 30,
   },
   BottomText: {
-    color: 'white',
+    color: 'black',
     fontSize: 25,
     textAlign: 'center',
   },

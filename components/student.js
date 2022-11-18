@@ -5,117 +5,120 @@ import {
   ActivityIndicator,
   Dimensions,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import {QuestionCard} from './questionCard';
-import {openDatabase} from 'react-native-sqlite-storage';
-var db = openDatabase({name: 'UserDatabase.db'});
 const {width: screenWidth, height: screenHeight} = Dimensions.get('window');
 
 export const Student = ({navigation, route}) => {
   // const [name, SetName] = useState([]);
   const [QuestionSections, SetQuestionSections] = useState({});
+  // console.log('questioncards', QuestionSections);
   const [index, SetIndex] = useState(0);
   const [Status, SetStatus] = useState(false);
   const [Responce, SetResponce] = useState([]);
+  const [Page, SetPage] = useState(1);
   const [Res, SetRes] = useState({});
+  // console.log('Student', Res.id);
 
   console.log('Responce', Responce);
+
+  // console.log('Responce', Responce);
   useEffect(() => {
-    data();
+    // console.log();
     GetQuestions();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Page]);
 
   const GetQuestions = async () => {
+    let student = await AsyncStorage.getItem('student');
+    SetRes(JSON.parse(student));
     SetStatus(false);
     await axios
-      .get('https://jsons-ervermock.herokuapp.com/StudentQuestions')
+      .get(
+        `https://jsons-ervermock.herokuapp.com/StudentQuestions?_page=${Page}`,
+      )
       .then(({data}) => {
-        SetQuestionSections(data[0].Questions);
+        // console.log(data);
+        SetQuestionSections(data);
         SetStatus(true);
       })
       .catch(err => console.error(err));
   };
-  const data = async () => {
-    db.transaction(tx => {
-      let temp = [];
-      tx.executeSql('SELECT * FROM StudentData', [], (txt, results) => {
-        for (let i = 0; i < results.rows.length; ++i) {
-          temp.push(results.rows.item(i).StudentData);
-          console.log('StudentData in student section', JSON.parse(temp));
-        }
-        SetRes(JSON.parse(temp));
-      });
-    });
-  };
 
-  const DataBase = () => {
-    db.transaction(function (tx) {
-      tx.executeSql('INSERT INTO student (responce) VALUES (?)', [Responce]);
-    });
-    db.transaction(tx => {
-      tx.executeSql('SELECT * FROM student', [], (txt, results) => {
-        var temp = [];
-        for (let i = 0; i < results.rows.length; ++i) {
-          temp.push(results.rows.item(i).studentData);
-        }
+  const SubmitResponse = () => {
+    console.log('inside', {Responce, TimeStamp: Date.now(), StudentId: Res.id});
+    axios
+      .post('https://pg-admin-students.herokuapp.com/sendresponce', {
+        response: Responce,
+        timestamp: Date.now(),
+        studentid: Res.id,
+      })
+      .then(data => {
+        navigation.navigate('Dashboard');
+      })
+      .catch(err => {
+        console.log(err);
       });
-    });
-  };
-  const CreateTable = () => {
-    db.transaction(function (txn) {
-      txn.executeSql(
-        "SELECT name FROM sqlite_master WHERE type='table' AND name='student'",
-        [],
-        function (tx, res) {
-          console.log('item:', res.rows.length);
-          if (res.rows.length === 0) {
-            txn.executeSql('DROP sTABLE IF EXISTS student', []);
-            txn.executeSql(
-              'CREATE TABLE IF NOT EXISTS student(responce NVARCHAR(100000))',
-              [],
-            );
-          }
-        },
-      );
-    });
   };
 
   return Status ? (
-    <View>
-      <LinearGradient
-        colors={['#c0392b', '#f1c40f', '#8e44ad']}
-        start={{x: 0, y: 0.5}}
-        end={{x: 1, y: 1}}
-        style={Styles.button}>
-        <Pressable style={Styles.Card}>
-          <Text style={Styles.Text}>Name:-{Res.name}</Text>
-          <Text style={Styles.Text}>Age:-{Res.age}</Text>
-          <Text style={Styles.Text}>Gender:-{Res.gender}</Text>
+    <ScrollView style={Styles.button}>
+      <Text style={Styles.Title}>{QuestionSections[index]?.Section}</Text>
+      {QuestionSections.map((question, i) => {
+        return (
+          <QuestionCard
+            QuestionSections={question}
+            index={i}
+            key={i}
+            SetIndex={SetIndex}
+            SetResponce={SetResponce}
+            Responce={Responce}
+          />
+        );
+      })}
+      <View style={Styles.buttonDiv}>
+        <Pressable
+          onPress={() => {
+            SetPage(Page - 1);
+          }}
+          style={Styles.buttons}>
+          <Text style={Styles.buttonText}>Previous</Text>
         </Pressable>
-        <Text style={Styles.Title}>{QuestionSections[index]?.Section}</Text>
-        <QuestionCard
-          QuestionSections={QuestionSections}
-          index={index}
-          SetIndex={SetIndex}
-          SetResponce={SetResponce}
-          Responce={Responce}
-        />
-      </LinearGradient>
-    </View>
-  ) : (
-    <LinearGradient
-      colors={['#c0392b', '#f1c40f', '#8e44ad']}
-      start={{x: 0, y: 0.5}}
-      end={{x: 1, y: 1}}
-      style={Styles.button}>
-      <View style={[Loading.container, Loading.horizontal]}>
-        <ActivityIndicator color="#ffffff" size="large" />
+        <Pressable
+          onPress={() => {
+            SetPage(Page + 1);
+          }}
+          style={Styles.buttons}>
+          <Text style={Styles.buttonText}>Next</Text>
+        </Pressable>
       </View>
-    </LinearGradient>
+      <View style={[Styles.buttonDiv, {justifyContent: 'center'}]}>
+        {QuestionSections.length < 10 ? (
+          <Pressable
+            onPress={() => {
+              SubmitResponse();
+            }}
+            style={[
+              Styles.buttons,
+              {backgroundColor: 'green', borderWidth: 0},
+            ]}>
+            <Text style={[Styles.buttonText, {color: 'white'}]}>Submit</Text>
+          </Pressable>
+        ) : (
+          ''
+        )}
+      </View>
+    </ScrollView>
+  ) : (
+    <ScrollView style={Styles.button}>
+      <View style={[Loading.container, Loading.horizontal]}>
+        <ActivityIndicator color="black" size="large" />
+      </View>
+    </ScrollView>
   );
 };
 
@@ -131,8 +134,9 @@ const Styles = StyleSheet.create({
   },
   button: {
     paddingVertical: 3,
-    paddingHorizontal: 10,
+    paddingHorizontal: 0,
     height: screenHeight,
+    backgroundColor: 'white',
   },
   Card: {
     borderWidth: 1,
@@ -145,7 +149,7 @@ const Styles = StyleSheet.create({
     marginBottom: 50,
   },
   Text: {
-    color: 'white',
+    color: 'black',
     fontSize: 17,
   },
   buttonText: {
@@ -172,7 +176,7 @@ const Styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   Title: {
-    color: 'white',
+    color: 'black',
     fontSize: 20,
     marginBottom: 30,
   },

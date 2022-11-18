@@ -1,0 +1,21 @@
+{
+    "header": "Student Monitor App",
+    "ID": "ID",
+    "Name": "Name",
+    "School": "School",
+    "Gender": "Gender",
+    "Age": "Age",
+    "Country": "Country",
+    "Ethnicity": "Ethnicity",
+    "Mobile": "Mobile",
+    "Email": "Email",
+    "Education": "Education",
+    "Buttons": {
+        "AddStudent": "Add Student",
+        "AddParentDetails": "Add Parent Details",
+        "Save": "Save",
+        "Next": "Next",
+        "Previous": "Previous",
+        "ViewProfile": "View Profile"
+    }
+}

@@ -1,96 +1,81 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 import {
   ActivityIndicator,
   Dimensions,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import {openDatabase} from 'react-native-sqlite-storage';
 import {QuestionCard} from './questionCard';
 const {width: screenWidth, height: screenHeight} = Dimensions.get('window');
-var db = openDatabase({name: 'UserDatabase.db'});
 
 export const Parent = ({navigation, route}) => {
-  const [name, SetName] = useState([]);
   const [QuestionSections, SetQuestionSections] = useState({});
   const [index, SetIndex] = useState(0);
   const [Status, SetStatus] = useState(false);
-  const [ParentResponse, SetParentResponse] = useState({});
-  const [StudentResponse, SetStudentResponse] = useState({});
+  const [Page, SetPage] = useState(1);
+  const [Responce, SetResponce] = useState([]);
+
   useEffect(() => {
     data();
     GetQuestions();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Page]);
 
   const GetQuestions = async () => {
     SetStatus(false);
     await axios
-      .get('https://jsons-ervermock.herokuapp.com/ParentQuestions')
+      .get(
+        `https://jsons-ervermock.herokuapp.com/ParentQuestions?_page=${Page}`,
+      )
       .then(({data}) => {
-        SetQuestionSections(data[0].Questions);
+        SetQuestionSections(data);
         SetStatus(true);
       })
       .catch(err => console.error(err));
   };
-  const data = async () => {
-    db.transaction(tx => {
-      let temp = [];
-      tx.executeSql('SELECT * FROM ParentData', [], (txt, results) => {
-        console.log('results', results);
-        for (let i = 0; i < results.rows.length; ++i) {
-          temp.push(results.rows.item(i).ParentData);
-          console.log('ParentData', JSON.parse(temp));
-        }
-        SetParentResponse(JSON.parse(temp));
-      });
-    });
-    db.transaction(tx => {
-      let temp = [];
-      tx.executeSql('SELECT * FROM StudentData', [], (txt, results) => {
-        console.log('results', results);
-        for (let i = 0; i < results.rows.length; ++i) {
-          temp.push(results.rows.item(i).StudentData);
-          console.log('StudentData', JSON.parse(temp));
-        }
-        SetStudentResponse(JSON.parse(temp));
-      });
-    });
-  };
+  const data = async () => {};
   return Status ? (
-    <View>
-      <LinearGradient
-        colors={['#c0392b', '#f1c40f', '#8e44ad']}
-        start={{x: 0, y: 0.5}}
-        end={{x: 1, y: 1}}
-        style={Styles.button}>
-        <Pressable style={Styles.Card}>
-          <Text style={Styles.Text}>Name:-{StudentResponse.parent}</Text>
-          <Text style={Styles.Text}>Status:-{ParentResponse.occupation}</Text>
-          <Text style={Styles.Text}>DOB:-{ParentResponse.age}</Text>
+    <ScrollView style={Styles.button}>
+      <Text style={Styles.Title}>{QuestionSections[index]?.Section}</Text>
+      {QuestionSections.map((question, i) => {
+        return (
+          <QuestionCard
+            QuestionSections={question}
+            index={i}
+            key={i}
+            SetIndex={SetIndex}
+            SetResponce={SetResponce}
+            Responce={Responce}
+          />
+        );
+      })}
+      <View style={Styles.buttonDiv}>
+        <Pressable
+          onPress={() => {
+            SetPage(Page - 1);
+          }}
+          style={Styles.buttons}>
+          <Text style={Styles.buttonText}>Previous</Text>
         </Pressable>
-        <Text style={Styles.Title}>{QuestionSections[index]?.Section}</Text>
-        <QuestionCard
-          QuestionSections={QuestionSections}
-          index={index}
-          SetIndex={SetIndex}
-        />
-      </LinearGradient>
-    </View>
-  ) : (
-    <LinearGradient
-      colors={['#c0392b', '#f1c40f', '#8e44ad']}
-      start={{x: 0, y: 0.5}}
-      end={{x: 1, y: 1}}
-      style={Styles.button}>
-      <View style={[Loading.container, Loading.horizontal]}>
-        <ActivityIndicator color="#ffffff" size="large" />
+        <Pressable
+          onPress={() => {
+            SetPage(Page + 1);
+          }}
+          style={Styles.buttons}>
+          <Text style={Styles.buttonText}>Next</Text>
+        </Pressable>
       </View>
-    </LinearGradient>
+    </ScrollView>
+  ) : (
+    <ScrollView style={Styles.button}>
+      <View style={[Loading.container, Loading.horizontal]}>
+        <ActivityIndicator color="black" size="large" />
+      </View>
+    </ScrollView>
   );
 };
 
@@ -108,6 +93,7 @@ const Styles = StyleSheet.create({
     paddingVertical: 3,
     paddingHorizontal: 10,
     height: screenHeight,
+    backgroundColor: 'white',
   },
   Card: {
     borderWidth: 1,
@@ -120,7 +106,7 @@ const Styles = StyleSheet.create({
     marginBottom: 50,
   },
   Text: {
-    color: 'white',
+    color: 'black',
     fontSize: 17,
   },
   buttonText: {
@@ -147,7 +133,7 @@ const Styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   Title: {
-    color: 'white',
+    color: 'black',
     fontSize: 20,
     marginBottom: 30,
   },

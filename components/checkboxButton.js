@@ -12,19 +12,36 @@ export const CheckBoxButton = ({state, i, value, handelMultiple}) => {
   return (
     <View style={Style.container}>
       <CheckBox
-        disabled={false}
         value={toggleCheckBox}
         onValueChange={newValue => {
-          console.log(newValue);
+          // console.log(newValue);
           setToggleCheckBox(newValue);
           handelMultiple(value);
         }}
-        tintColors={{true: 'white', false: 'black'}}
+        tintColors={{true: 'green', false: 'black'}}
       />
       <Text style={Style.Text}>{value.label}</Text>
     </View>
   );
 };
+
+// const default = ()=>{
+//   return (
+//     <View style={Style.container}>
+//       <CheckBox
+//         value={toggleCheckBox}
+//         defaultCheck={true}
+//         onValueChange={newValue => {
+//           // console.log(newValue);
+//           setToggleCheckBox(newValue);
+//           handelMultiple(value);
+//         }}
+//         tintColors={{true: 'green', false: 'black'}}
+//       />
+//       <Text style={Style.Text}>{value.label}</Text>
+//     </View>
+//   );
+// }
 
 const Style = StyleSheet.create({
   container: {
@@ -32,7 +49,7 @@ const Style = StyleSheet.create({
     alignItems: 'center',
   },
   Text: {
-    color: 'white',
+    color: 'black',
     fontSize: 17,
   },
 });

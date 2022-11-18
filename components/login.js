@@ -5,12 +5,12 @@ import {
   Dimensions,
   Platform,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 const {width: screenWidth} = Dimensions.get('window');
 
 export const Login = ({navigation}) => {
@@ -20,12 +20,14 @@ export const Login = ({navigation}) => {
   });
 
   const UserLogin = async () => {
+    await AsyncStorage.setItem('userid', '');
     try {
-      console.log(Credentials);
+      // console.log(Credentials);
       await axios
         .post('https://jwtath-1.herokuapp.com/login', Credentials)
         .then(async ({data}) => {
-          console.log(data);
+          // console.log(data.id);
+          await AsyncStorage.setItem('userid', data.id);
           await AsyncStorage.setItem('auth', 'true');
           navigation.navigate('Home');
         })
@@ -38,20 +40,17 @@ export const Login = ({navigation}) => {
   };
 
   const HandelChange = (id, e) => {
-    console.log(e, id);
+    // console.log(e, id);
     SetCredentials({...Credentials, [id]: e});
   };
 
   return (
-    <LinearGradient
-      colors={['#c0392b', '#f1c40f', '#8e44ad']}
-      start={{x: 0, y: 0.5}}
-      end={{x: 1, y: 1}}
-      style={Styles.button}>
+    <ScrollView style={Styles.button}>
       <View>
         <Text style={Styles.HeroTitle}>Enter Details to Login</Text>
         <Text style={Styles.inputTitles}>Email:-</Text>
         <TextInput
+          placeholderTextColor="#818589"
           style={Styles.TextFields}
           placeholder="Enter your Email Address.."
           onChangeText={newText => HandelChange('email', newText)}
@@ -59,6 +58,7 @@ export const Login = ({navigation}) => {
         />
         <Text style={Styles.inputTitles}>Password:-</Text>
         <TextInput
+          placeholderTextColor="#818589"
           style={Styles.TextFields}
           secureTextEntry={true}
           placeholder="Enter your Password.."
@@ -72,8 +72,8 @@ export const Login = ({navigation}) => {
               <Text style={Styles.buttonText}>Login</Text>
             </Pressable>
           </View>
+          <Text style={Styles.condition}>Dont Have an account?</Text>
           <View style={Styles.login}>
-            <Text>Dont Have an account?</Text>
             <Pressable
               onPress={() =>
                 navigation.navigate('Register', {name: 'Register'})
@@ -84,14 +84,18 @@ export const Login = ({navigation}) => {
           </View>
         </View>
       </View>
-    </LinearGradient>
+    </ScrollView>
   );
 };
 
 const Styles = StyleSheet.create({
+  condition: {
+    color: 'black',
+  },
   HeroTitle: {
-    fontSize: 30,
-    color: 'white',
+    fontSize: 25,
+    color: 'black',
+    paddingBottom: 30,
   },
   inputTitles: {
     fontSize: 20,
@@ -99,13 +103,13 @@ const Styles = StyleSheet.create({
   },
   TextFields: {
     width: screenWidth - 30,
-    height: 60,
+    height: 50,
     borderWidth: 2,
     borderRadius: 5,
     marginTop: 10,
-    borderColor: 'white',
-    fontSize: 26,
-    color: 'white',
+    borderColor: 'black',
+    fontSize: 20,
+    color: 'black',
   },
   ButtonContainor: {
     flexDirection: 'column',

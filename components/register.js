@@ -5,12 +5,12 @@ import {
   KeyboardAvoidingView,
   Platform,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 const {width: screenWidth} = Dimensions.get('window');
 
 export const Register = ({navigation}) => {
@@ -18,6 +18,7 @@ export const Register = ({navigation}) => {
     name: '',
     email: '',
     password: '',
+    language: 'en',
   });
   const UserRegister = async () => {
     try {
@@ -40,15 +41,12 @@ export const Register = ({navigation}) => {
   };
 
   return (
-    <LinearGradient
-      colors={['#c0392b', '#f1c40f', '#8e44ad']}
-      start={{x: 0, y: 0.5}}
-      end={{x: 1, y: 1}}
-      style={Styles.button}>
+    <ScrollView style={Styles.button}>
       <KeyboardAvoidingView>
         <Text style={Styles.HeroTitle}>Enter Details to Register</Text>
         <Text style={Styles.inputTitles}>Name:-</Text>
         <TextInput
+          placeholderTextColor="#818589"
           id="name"
           style={Styles.TextFields}
           placeholder="Enter Your Name.."
@@ -57,6 +55,7 @@ export const Register = ({navigation}) => {
         />
         <Text style={Styles.inputTitles}>Email:-</Text>
         <TextInput
+          placeholderTextColor="#818589"
           id="email"
           style={Styles.TextFields}
           placeholder="Enter your Email Address.."
@@ -65,6 +64,7 @@ export const Register = ({navigation}) => {
         />
         <Text style={Styles.inputTitles}>Password:-</Text>
         <TextInput
+          placeholderTextColor="#818589"
           id="password"
           style={Styles.TextFields}
           secureTextEntry={true}
@@ -78,7 +78,7 @@ export const Register = ({navigation}) => {
               <Text style={Styles.buttonText}>Register</Text>
             </Pressable>
           </View>
-          <Text>Already have an account?</Text>
+          <Text style={Styles.condition}>Already have an account?</Text>
           <View style={Styles.login}>
             <Pressable
               onPress={() => navigation.navigate('Login', {name: 'Login'})}
@@ -88,14 +88,18 @@ export const Register = ({navigation}) => {
           </View>
         </View>
       </KeyboardAvoidingView>
-    </LinearGradient>
+    </ScrollView>
   );
 };
 
 const Styles = StyleSheet.create({
+  condition: {
+    color: 'black',
+  },
   HeroTitle: {
-    fontSize: 30,
-    color: 'white',
+    fontSize: 25,
+    color: 'black',
+    paddingBottom: 30,
   },
   inputTitles: {
     fontSize: 20,
@@ -103,12 +107,12 @@ const Styles = StyleSheet.create({
   },
   TextFields: {
     width: screenWidth - 30,
-    height: 60,
+    height: 50,
     borderWidth: 2,
     borderRadius: 5,
     marginTop: 10,
-    borderColor: 'white',
-    fontSize: 26,
+    borderColor: 'black',
+    fontSize: 20,
   },
   ButtonContainor: {
     flexDirection: 'column',

@@ -4,10 +4,10 @@ import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {RadioButton} from 'react-native-paper';
 export const RadioComponent = ({data, i, handelSingleRadio}) => {
   const [value, setValue] = useState(0);
-  console.log(value);
+  // console.log(value);
   useEffect(() => {
     setValue(0);
-  }, [i]);
+  }, []);
   return (
     <View>
       {data.map((item, ind) => {
@@ -41,6 +41,6 @@ const Style = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    color: 'white',
+    color: 'black',
   },
 });

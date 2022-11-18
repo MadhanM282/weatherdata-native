@@ -1,0 +1,18 @@
+{
+    "header": "Schülermonitor-App",
+    "ID": "ICH WÜRDE",
+    "Name": "Name",
+    "School": "Schule",
+    "Gender": "Geschlecht",
+    "Age": "Alter",
+    "Country": "Land",
+    "Ethnicity": "Ethnizität",
+    "Buttons": {
+        "AddStudent": "Schüler hinzufügen",
+        "AddParentDetails": "Elterndetails hinzufügen",
+        "Save": "Speichern",
+        "Next": "Nächste",
+        "Previous": "Vorherige",
+        "ViewProfile": "Profil anzeigen"
+    }
+}

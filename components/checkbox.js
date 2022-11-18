@@ -33,19 +33,19 @@ const Style = StyleSheet.create({
     alignItems: 'center',
   },
   options: {
-    color: 'white',
+    color: 'black',
     fontSize: 18,
   },
   Title: {
-    color: 'yellow',
+    color: 'orange',
     fontSize: 20,
-    marginBottom: 10,
+    // marginBottom: 10,
   },
   condition: {
     fontSize: 20,
   },
   Text: {
-    color: 'white',
+    color: 'black',
     fontSize: 17,
   },
 });
